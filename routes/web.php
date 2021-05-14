@@ -13,9 +13,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('home');
+Route::get('inicio', function () {
+    return view('index');
 });
+Route::get('registro', function () {
+    return view('Registro');
+})->name('registrar');
 
 Auth::routes();
 
