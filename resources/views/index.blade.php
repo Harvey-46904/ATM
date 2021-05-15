@@ -47,7 +47,14 @@
                 </label>
                 <span class="ml-auto"><a href="#" class="forgot-pass">Olvide Contraseña</a></span> 
               </div>
+             
+              @if (Session::get('msg'))
+              <div class="alert alert-success"><strong>{!! \Session::get('msg') !!}</strong></div>
+              @endif
 
+
+            
+              
               <input type="submit" value="Entrar" class="btn btn-block btn-success">
 
             </form>

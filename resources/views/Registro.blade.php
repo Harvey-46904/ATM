@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Sign Up Form by Colorlib</title>
+    <title>Registro</title>
 
     <!-- Font Icon -->
     <link rel="stylesheet" href="fonts/material-icon/css/material-design-iconic-font.min.css">
@@ -19,15 +19,17 @@
 
         <div class="container">
             <div class="signup-content">
-                <div class="signup-img">
+                <div class="signup-img" >
                     <img src="images/form-img.jpg" alt="">
                     <div class="signup-img-content">
                         <h2>Registro ATM </h2>
                        
                     </div>
                 </div>
+                
                 <div class="signup-form">
-                    <form method="POST" class="register-form" id="register-form" action="#">
+                    <form method="POST" class="register-form" id="register-form" action="{{ route('crear') }}">
+                        {{ csrf_field() }}
                         <div class="form-row">
                             <div class="form-group">
                                 <div class="form-input">

@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\Route;
 use App\Models\Usuarios;
 use Illuminate\Http\Request;
-
+use Illuminate\Support\Facades\Hash;
+use Redirect;
 class UsuariosController extends Controller
 {
     /**
@@ -22,9 +24,25 @@ class UsuariosController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
-        //
+        $data=$request->all();
+        $Cedula=$data["Cedula"];
+        $Nombre=$data["Nombre"];
+        $Apellido=$data["Apellido"];
+        $Email=$data["Email"];
+        $Password=md5($data["contraseña"]);
+        
+       
+            $crear_usuario=new Usuarios;
+            $crear_usuario->Cedula=$Cedula;
+            $crear_usuario->Nombre=$Nombre;
+            $crear_usuario->Apellido=$Apellido;
+            $crear_usuario->Email=$Email;
+            $crear_usuario->Password=$Password;
+            $crear_usuario->save();
+          
+            return Redirect::to('inicio')->with('msg', 'Registro Exitoso');
     }
 
     /**
