@@ -6,6 +6,8 @@ use Illuminate\Support\Facades\Route;
 use App\Models\Usuarios;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Crypt;
 use Redirect;
 class UsuariosController extends Controller
 {
@@ -43,6 +45,28 @@ class UsuariosController extends Controller
             $crear_usuario->save();
           
             return Redirect::to('inicio')->with('msg', 'Registro Exitoso');
+    }
+    public function Login(Request $request){
+        $data=$request->all();
+        
+        $email=$data["Email"];
+        $Password=md5($data["contraseña"]);
+        $usuarios=DB::table('usuarios')
+        ->select()
+        ->where('usuarios.Email','=',$email)
+        ->get()->first();
+       
+        if($usuarios){
+            if($usuarios->Password==$Password){
+                session()->put('usernamecomplet', $usuarios->Nombre." ".$usuarios->Apellido);
+                return view('dash/dashboard');
+            }else{
+                return back()->with('msgerror', 'La Contraseña Es Incorrecta');
+            }
+           
+        }else{
+            return back()->with('msgerror', 'El Correo Es Incorrecto');
+        }
     }
 
     /**
