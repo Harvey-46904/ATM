@@ -11,7 +11,7 @@
         <meta name="description"
             content="Monster Lite is powerful and clean admin dashboard template, inpired from Bootstrap Framework">
         <meta name="robots" content="noindex,nofollow">
-        <title>Monster Lite Template by WrapPixel</title>
+        <title>ATM</title>
         <link rel="canonical" href="https://www.wrappixel.com/templates/monster-admin-lite/" />
         <!-- Favicon icon -->
         <link rel="icon" type="image/png" sizes="16x16" href="../assets/images/favicon.png">
@@ -142,7 +142,9 @@
                         <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
                                 href="{{ route('mapa') }}" aria-expanded="false"><i class="me-3 fa fa-globe"
                                     aria-hidden="true"></i><span class="hide-menu">Google Map</span></a></li>
-                      
+                      <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
+                                href="{{ route('cerrar') }}" aria-expanded="false"><i class="me-3 fas fa-sign-out-alt"
+                                    aria-hidden="true"></i><span class="hide-menu">Cerrar Sesion</span></a></li>
                         
                     </ul>
 

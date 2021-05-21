@@ -58,6 +58,7 @@ class UsuariosController extends Controller
        
         if($usuarios){
             if($usuarios->Password==$Password){
+                session()->put('id', $usuarios->id);
                 session()->put('usernamecomplet', $usuarios->Nombre." ".$usuarios->Apellido);
                 return view('dash/dashboard');
             }else{
@@ -86,9 +87,14 @@ class UsuariosController extends Controller
      * @param  \App\Models\Usuarios  $usuarios
      * @return \Illuminate\Http\Response
      */
-    public function show(Usuarios $usuarios)
+    public function show()
     {
-        //
+        $id=session("id");
+        $usuario=Usuarios::findOrFail($id);
+        //return response(["data"=>$usuario]);
+        return view('dash/pages-profile',compact("usuario"));
+       
+    
     }
 
     /**
@@ -109,9 +115,34 @@ class UsuariosController extends Controller
      * @param  \App\Models\Usuarios  $usuarios
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Usuarios $usuarios)
+    public function update(Request $request)
     {
-        //
+        $data=$request->all();
+        $Cedula=$data["Cedula"];
+        $Nombre=$data["Nombre"];
+        $Apellido=$data["Apellido"];
+        $Email=$data["Email"];
+        $Password=md5($data["contraseña"]);
+        
+        $actualcontraseña=md5($data["contraseña_actual"]);
+        $id=session("id");
+        $usuario=Usuarios::findOrFail($id);
+        if($usuario->Password==$actualcontraseña){
+            Usuarios::find($id)
+        ->update(
+            [
+                'Cedula'=> $Cedula,
+                'Nombre' => $Nombre,
+                'Apellido'=>$Apellido,
+                'Email' => $Email,
+                'Password'  => $Password
+            ]
+        );
+            return back()->with('msg', 'Datos Actualizados Correctamente');
+        }else{
+            return back()->with('msgerror', 'La Contraseña Actual Es Incorrecta');
+        }
+        
     }
 
     /**
@@ -120,8 +151,9 @@ class UsuariosController extends Controller
      * @param  \App\Models\Usuarios  $usuarios
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Usuarios $usuarios)
+    public function destroy()
     {
-        //
+        //session()->flush();
+        return view("index");
     }
 }

@@ -143,7 +143,9 @@
                                 href="{{ route('mapa') }}" aria-expanded="false"><i class="me-3 fa fa-globe"
                                     aria-hidden="true"></i><span class="hide-menu">Google Map</span></a></li>
                       
-                        
+                        <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
+                                href="{{ route('cerrar') }}" aria-expanded="false"><i class="me-3 fas fa-sign-out-alt"
+                                    aria-hidden="true"></i><span class="hide-menu">Cerrar Sesion</span></a></li>
                     </ul>
 
                 </nav>
@@ -272,7 +274,7 @@
             <!-- footer -->
             <!-- ============================================================== -->
             <footer class="footer text-center">
-                © 2021 Monster Admin by <a href="https://www.wrappixel.com/">wrappixel.com</a>
+              
             </footer>
             <!-- ============================================================== -->
             <!-- End footer -->

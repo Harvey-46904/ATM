@@ -11,7 +11,7 @@
         <meta name="description"
             content="Monster Lite is powerful and clean admin dashboard template, inpired from Bootstrap Framework">
         <meta name="robots" content="noindex,nofollow">
-        <title>Monster Lite Template by WrapPixel</title>
+        <title>ATM</title>
         <link rel="canonical" href="https://www.wrappixel.com/templates/monster-admin-lite/" />
         <!-- Favicon icon -->
         <link rel="icon" type="image/png" sizes="16x16" href="../assets/images/favicon.png">
@@ -141,7 +141,9 @@
                         <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
                                 href="{{ route('mapa') }}" aria-expanded="false"><i class="me-3 fa fa-globe"
                                     aria-hidden="true"></i><span class="hide-menu">Google Map</span></a></li>
-                      
+                      <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
+                                href="{{ route('cerrar') }}" aria-expanded="false"><i class="me-3 fas fa-sign-out-alt"
+                                    aria-hidden="true"></i><span class="hide-menu">Cerrar Sesion</span></a></li>
                         
                     </ul>
 
@@ -201,58 +203,86 @@
                     <div class="col-lg-8 col-xlg-9 col-md-7">
                         <div class="card">
                             <div class="card-body">
-                                <form class="form-horizontal form-material mx-2">
+                                @if (Session::get('msgerror'))
+                                <div class="alert alert-danger"><strong>{!! \Session::get('msgerror') !!}</strong></div>
+                                @endif
+                                @if (Session::get('msg'))
+                                <div class="alert alert-success"><strong>{!! \Session::get('msg') !!}</strong></div>
+                                @endif
+                                <form class="form-horizontal form-material mx-2" method="POST" action="{{ route('actualizar') }}">
+                                    @method("PUT")
+                                    @csrf
+                                   
                                     <div class="form-group">
-                                        <label class="col-md-12 mb-0">Full Name</label>
+                                        <label class="col-md-12 mb-0">Cedula</label>
                                         <div class="col-md-12">
-                                            <input type="text" placeholder="Johnathan Doe"
-                                                class="form-control ps-0 form-control-line">
+                                            <input type="text" placeholder=""  value="{{$usuario->Cedula}}" 
+                                                class="form-control ps-0 form-control-line "
+                                                name="Cedula" id="Cedula"
+                                                required>
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label for="example-email" class="col-md-12">Email</label>
+                                        <label class="col-md-12 mb-0">Nombre</label>
                                         <div class="col-md-12">
-                                            <input type="email" placeholder="johnathan@admin.com"
-                                                class="form-control ps-0 form-control-line" name="example-email"
-                                                id="example-email">
+                                            <input type="text" placeholder=""  
+                                                class="form-control ps-0 form-control-line"
+                                                value="{{$usuario->Nombre}}"
+                                                name="Nombre" id="Nombre"
+                                                required>
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label class="col-md-12 mb-0">Password</label>
+                                        <label class="col-md-12 mb-0">Apellido</label>
                                         <div class="col-md-12">
-                                            <input type="password" value="password"
-                                                class="form-control ps-0 form-control-line">
+                                            <input type="text" placeholder=""  
+                                                class="form-control ps-0 form-control-line"
+                                                value="{{$usuario->Apellido}}"
+                                                name="Apellido" id="Apellido"
+                                                required>
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label class="col-md-12 mb-0">Phone No</label>
+                                        <label class="col-md-12 mb-0">Email</label>
                                         <div class="col-md-12">
-                                            <input type="text" placeholder="123 456 7890"
-                                                class="form-control ps-0 form-control-line">
+                                            <input type="text" placeholder="" 
+                                                class="form-control ps-0 form-control-line"
+                                                value="{{$usuario->Email}}"
+                                                name="Email" id="Email"
+                                                required>
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label class="col-md-12 mb-0">Message</label>
+                                        <label class="col-md-12 mb-0">Contraseña Nueva</label>
                                         <div class="col-md-12">
-                                            <textarea rows="5" class="form-control ps-0 form-control-line"></textarea>
+                                            <input type="text" placeholder="" 
+                                                class="form-control ps-0 form-control-line"
+                                                name="contraseña" id="contraseña"
+                                                required>
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label class="col-sm-12">Select Country</label>
-                                        <div class="col-sm-12 border-bottom">
-                                            <select class="form-select shadow-none border-0 ps-0 form-control-line">
-                                                <option>London</option>
-                                                <option>India</option>
-                                                <option>Usa</option>
-                                                <option>Canada</option>
-                                                <option>Thailand</option>
-                                            </select>
+                                        <label class="col-md-12 mb-0">Contraseña Actual</label>
+                                        <div class="col-md-12">
+                                            <input type="text" placeholder="" 
+                                                class="form-control ps-0 form-control-line"
+                                                name="contraseña_actual" id="contraseña_actual"
+                                                required>
                                         </div>
                                     </div>
+                                    
+                                    
+                                   
+                                    
+                                   
+                                    
+                                    
+                                    
+                                    
+                               
                                     <div class="form-group">
                                         <div class="col-sm-12 d-flex">
-                                            <button class="btn btn-success mx-auto mx-md-0 text-white">Update
-                                                Profile</button>
+                                            <button class="btn btn-success mx-auto mx-md-0 text-white">Actualizar Perfil</button>
                                         </div>
                                     </div>
                                 </form>
@@ -280,7 +310,7 @@
             <!-- footer -->
             <!-- ============================================================== -->
             <footer class="footer text-center">
-                © 2021 Monster Admin by <a href="https://www.wrappixel.com/">wrappixel.com</a>
+             
             </footer>
             <!-- ============================================================== -->
             <!-- End footer -->

@@ -32,10 +32,10 @@ Route::get('mapa', function () {
 Route::get('tabla', function () {
     return view('dash/table-basic');
 })->name('tabla');
-Route::get('perfil', function () {
-    return view('dash/pages-profile');
-})->name('perfil');
+Route::get('cerrar', "UsuariosController@destroy")->name('cerrar');
+Route::get('perfil',"UsuariosController@show")->name('perfil');
 
+Route::put('actualizar', "UsuariosController@update")->name("actualizar");
 
 Route::post("create","UsuariosController@create")->name("crear");
 Route::post("entrar","UsuariosController@Login")->name("entrar");
