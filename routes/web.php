@@ -29,9 +29,7 @@ Route::get('principal', function () {
 Route::get('mapa', function () {
     return view('dash/map-google');
 })->name('mapa');
-Route::get('tabla', function () {
-    return view('dash/table-basic');
-})->name('tabla');
+Route::get('tabla', "VariablesController@index")->name('tabla');
 Route::get('cerrar', "UsuariosController@destroy")->name('cerrar');
 Route::get('perfil',"UsuariosController@show")->name('perfil');
 
@@ -40,6 +38,7 @@ Route::put('actualizar', "UsuariosController@update")->name("actualizar");
 Route::post("create","UsuariosController@create")->name("crear");
 Route::post("entrar","UsuariosController@Login")->name("entrar");
 
+Route::post("variablecrear","VariablesController@create")->name("variablecrear");
 
 Auth::routes();
 

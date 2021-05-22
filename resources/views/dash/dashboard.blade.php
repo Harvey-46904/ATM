@@ -166,12 +166,12 @@
             <div class="page-breadcrumb">
                 <div class="row align-items-center">
                     <div class="col-md-6 col-8 align-self-center">
-                        <h3 class="page-title mb-0 p-0">Dashboard</h3>
+                        <h3 class="page-title mb-0 p-0">Ingreso de datos</h3>
                         <div class="d-flex align-items-center">
                             <nav aria-label="breadcrumb">
                                 <ol class="breadcrumb">
-                                    <li class="breadcrumb-item"><a href="#">Home</a></li>
-                                    <li class="breadcrumb-item active" aria-current="page">Dashboard</li>
+                                    <li class="breadcrumb-item"><a href="#">Dashboard</a></li>
+                                    <li class="breadcrumb-item active" aria-current="page">datos</li>
                                 </ol>
                             </nav>
                         </div>
@@ -197,80 +197,86 @@
                             @if (Session::get('msg'))
                             <div class="alert alert-success"><strong>{!! \Session::get('msg') !!}</strong></div>
                             @endif
-                            <form class="form-horizontal form-material mx-2" method="POST" action="{{ route('actualizar') }}">
-                                @method("PUT")
+                            <form class="form-horizontal form-material mx-2" method="POST" action="{{ route('variablecrear') }}">
+                               
                                 @csrf
                                
                                 <div class="form-group">
-                                    <label class="col-md-12 mb-0">Cedula</label>
+                                    <label class="col-md-12 mb-0">Variable 1</label>
                                     <div class="col-md-12">
                                         <input type="text" placeholder=""  
                                             class="form-control ps-0 form-control-line "
-                                            name="Cedula" id="Cedula"
+                                            name="variable1" id="variable1"
                                             required>
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label class="col-md-12 mb-0">Nombre</label>
+                                    <label class="col-md-12 mb-0">Variable 2</label>
                                     <div class="col-md-12">
                                         <input type="text" placeholder=""  
-                                            class="form-control ps-0 form-control-line"
-                                            
-                                            name="Nombre" id="Nombre"
+                                            class="form-control ps-0 form-control-line "
+                                            name="variable2" id="variable2"
                                             required>
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label class="col-md-12 mb-0">Apellido</label>
+                                    <label class="col-md-12 mb-0">Variable 3</label>
                                     <div class="col-md-12">
                                         <input type="text" placeholder=""  
-                                            class="form-control ps-0 form-control-line"
-                                            
-                                            name="Apellido" id="Apellido"
+                                            class="form-control ps-0 form-control-line "
+                                            name="variable3" id="variable3"
                                             required>
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label class="col-md-12 mb-0">Email</label>
+                                    <label class="col-md-12 mb-0">Variable 4</label>
                                     <div class="col-md-12">
-                                        <input type="text" placeholder="" 
-                                            class="form-control ps-0 form-control-line"
-                                           
-                                            name="Email" id="Email"
+                                        <input type="text" placeholder=""  
+                                            class="form-control ps-0 form-control-line "
+                                            name="variable4" id="variable4"
                                             required>
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label class="col-md-12 mb-0">Contraseña Nueva</label>
+                                    <label class="col-md-12 mb-0">Variable 5</label>
                                     <div class="col-md-12">
-                                        <input type="text" placeholder="" 
-                                            class="form-control ps-0 form-control-line"
-                                            name="contraseña" id="contraseña"
+                                        <input type="text" placeholder=""  
+                                            class="form-control ps-0 form-control-line "
+                                            name="variable5" id="variable5"
                                             required>
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label class="col-md-12 mb-0">Contraseña Actual</label>
+                                    <label class="col-md-12 mb-0">Variable 6</label>
                                     <div class="col-md-12">
-                                        <input type="text" placeholder="" 
-                                            class="form-control ps-0 form-control-line"
-                                            name="contraseña_actual" id="contraseña_actual"
+                                        <input type="text" placeholder=""  
+                                            class="form-control ps-0 form-control-line "
+                                            name="variable6" id="variable6"
+                                            required>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-md-12 mb-0">Variable 7</label>
+                                    <div class="col-md-12">
+                                        <input type="text" placeholder=""  
+                                            class="form-control ps-0 form-control-line "
+                                            name="variable7" id="variable7"
+                                            required>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-md-12 mb-0">Variable 8</label>
+                                    <div class="col-md-12">
+                                        <input type="text" placeholder=""  
+                                            class="form-control ps-0 form-control-line "
+                                            name="variable8" id="variable8"
                                             required>
                                     </div>
                                 </div>
                                 
-                                
-                               
-                                
-                               
-                                
-                                
-                                
-                                
-                           
                                 <div class="form-group">
                                     <div class="col-sm-12 d-flex">
-                                        <button class="btn btn-success mx-auto mx-md-0 text-white">Actualizar Perfil</button>
+                                        <button class="btn btn-success mx-auto mx-md-0 text-white">Crear Variables</button>
                                     </div>
                                 </div>
                             </form>

@@ -51,6 +51,7 @@ class UsuariosController extends Controller
         
         $email=$data["Email"];
         $Password=md5($data["contraseña"]);
+        
         $usuarios=DB::table('usuarios')
         ->select()
         ->where('usuarios.Email','=',$email)
