@@ -29,6 +29,9 @@ Route::get('principal', function () {
 Route::get('mapa', function () {
     return view('dash/map-google');
 })->name('mapa');
+Route::get('/', function () {
+    return view('principal');
+})->name('map');
 Route::get('tabla', "VariablesController@index")->name('tabla');
 Route::get('cerrar', "UsuariosController@destroy")->name('cerrar');
 Route::get('perfil',"UsuariosController@show")->name('perfil');
