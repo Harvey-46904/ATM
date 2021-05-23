@@ -33,10 +33,7 @@ body { margin: 0; padding: 0; }
                     // These coordinates outline Maine.
                     'coordinates': [
                         [
-                            [-77.2456,1.2000],
-                            [-77.25356,1.20685],
-                            [-77.2672,1.2053],
-                            [-77.2541,1.2001]
+                          
                         ]
                     ]
                 }
@@ -50,12 +47,21 @@ body { margin: 0; padding: 0; }
             'source': 'maine', // reference the data source
             'layout': {},
             'paint': {
-                'fill-color': '#0080ff', // blue color fill
-                'fill-opacity': 0.5
+                'fill-color': '#4EF7DB', // blue color fill
+                'fill-opacity': 0.4
             }
         });
         // Add a black outline around the polygon.
-        
+        map.addLayer({
+            'id': 'outline',
+            'type': 'line',
+            'source': 'maine',
+            'layout': {},
+            'paint': {
+            'line-color': '#000',
+            'line-width': 3
+            }
+        });
     });
 </script>
 

@@ -16,22 +16,21 @@ use Illuminate\Support\Facades\Route;
 Route::get('inicio', function () {
     return view('index');
 });
-Route::get('dashboard', function () {
-    return view('dashboard');
-});
+
 Route::get('registro', function () {
     return view('Registro');
 })->name('registrar');
 
-Route::get('principal', function () {
-    return view('dash/dashboard');
-})->name('principal');
-Route::get('mapa', function () {
-    return view('dash/map-google');
-})->name('mapa');
+
+
 Route::get('/', function () {
     return view('principal');
 })->name('map');
+
+
+Route::get('mapa', "VariablesController@comuna")->name('mapa');
+
+Route::get('principal', "VariablesController@dashboard")->name('principal');
 Route::get('tabla', "VariablesController@index")->name('tabla');
 Route::get('cerrar', "UsuariosController@destroy")->name('cerrar');
 Route::get('perfil',"UsuariosController@show")->name('perfil');

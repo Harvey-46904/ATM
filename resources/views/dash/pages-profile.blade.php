@@ -128,19 +128,19 @@
                         <!-- User Profile-->
                         <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
                                 href="{{ route('principal') }}" aria-expanded="false"><i class="me-3 far fa-clock fa-fw"
-                                    aria-hidden="true"></i><span class="hide-menu">Dashboard</span></a></li>
+                                    aria-hidden="true"></i><span class="hide-menu">Variables</span></a></li>
                         <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
                                 href="{{ route('perfil') }}" aria-expanded="false">
                                 <i class="me-3 fa fa-user" aria-hidden="true"></i><span
-                                    class="hide-menu">Profile</span></a>
+                                    class="hide-menu">Perfil</span></a>
                         </li>
                         <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
                                 href="{{ route('tabla') }}" aria-expanded="false"><i class="me-3 fa fa-table"
-                                    aria-hidden="true"></i><span class="hide-menu">Table</span></a></li>
+                                    aria-hidden="true"></i><span class="hide-menu">Lista de Variables</span></a></li>
                        
                         <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
                                 href="{{ route('mapa') }}" aria-expanded="false"><i class="me-3 fa fa-globe"
-                                    aria-hidden="true"></i><span class="hide-menu">Google Map</span></a></li>
+                                    aria-hidden="true"></i><span class="hide-menu">Mapa</span></a></li>
                       <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
                                 href="{{ route('cerrar') }}" aria-expanded="false"><i class="me-3 fas fa-sign-out-alt"
                                     aria-hidden="true"></i><span class="hide-menu">Cerrar Sesion</span></a></li>
@@ -177,9 +177,7 @@
                     </div>
                     <div class="col-md-6 col-4 align-self-center">
                         <div class="text-end upgrade-btn">
-                            <a href="https://www.wrappixel.com/templates/monsteradmin/"
-                                class="btn btn-success d-none d-md-inline-block text-white" target="_blank">Upgrade to
-                                Pro</a>
+                            
                         </div>
                     </div>
                 </div>

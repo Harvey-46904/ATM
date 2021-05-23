@@ -15,7 +15,8 @@ class VariablesController extends Controller
     public function index()
     {
         $satos=DB::table('variables')
-                ->select()
+                ->select('variables.*','comunas.nombre_comuna')
+                ->join('comunas','variables.id_comuna','=','comunas.id')
                 ->get(); 
                 return view("dash/table-basic",compact("satos"));
     }
@@ -28,6 +29,8 @@ class VariablesController extends Controller
     public function create(Request $request)
     {
         $data=$request->all();
+       
+        $select=$data["select"];
         $variable1=$data["variable1"];
         $variable2=$data["variable2"];
         $variable3=$data["variable3"];
@@ -36,8 +39,10 @@ class VariablesController extends Controller
         $variable6=$data["variable6"];
         $variable7=$data["variable7"];
         $variable8=$data["variable8"];
+        $contaminacion=$variable1+$variable2+$variable3+$variable4+$variable5+$variable6+$variable7+$variable8;
 
         $crear_variable=new variables;
+            $crear_variable->id_comuna=$select;
             $crear_variable->variable_1=$variable1;
             $crear_variable->variable_2=$variable2;
             $crear_variable->variable_3=$variable3;
@@ -46,6 +51,7 @@ class VariablesController extends Controller
             $crear_variable->variable_6=$variable6;
             $crear_variable->variable_7=$variable7;
             $crear_variable->variable_8=$variable8;
+            $crear_variable->contaminacion=$contaminacion;
             $crear_variable->save();
             return back()->with('msg', 'Datos Agregados Correctamente');
     }
@@ -105,4 +111,32 @@ class VariablesController extends Controller
     {
         //
     }
+    public function dashboard(){
+        $satos=DB::table('comunas')
+        ->select()
+        ->get(); 
+        return view('dash/dashboard',compact("satos"));
+    }
+
+    public function comuna(){
+        $comuna1=self::contaminacion_comuna(1);
+        $comuna3=self::contaminacion_comuna(3);
+        $datos=array($comuna1, 0, $comuna3, "world");
+        return view('dash/map-google',compact("datos"));
+    }
+    public function contaminacion_comuna($comuna){
+        $id= DB::table('variables')
+        ->where('id', DB::raw("(select max(`id`) from variables where `id_comuna`=".$comuna." )"))
+        ->where('id_comuna','=',$comuna)
+        ->get();
+        if($id==null){
+            return 0;
+        }else{
+            return $contaminante=$id[0]->contaminacion;
+        }
+        
+    
+        
+    }
+    
 }

@@ -129,19 +129,19 @@
                         <!-- User Profile-->
                         <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
                                 href="{{ route('principal') }}" aria-expanded="false"><i class="me-3 far fa-clock fa-fw"
-                                    aria-hidden="true"></i><span class="hide-menu">Dashboard</span></a></li>
+                                    aria-hidden="true"></i><span class="hide-menu">Variables</span></a></li>
                         <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
                                 href="{{ route('perfil') }}" aria-expanded="false">
                                 <i class="me-3 fa fa-user" aria-hidden="true"></i><span
-                                    class="hide-menu">Profile</span></a>
+                                    class="hide-menu">Perfil</span></a>
                         </li>
                         <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
                                 href="{{ route('tabla') }}" aria-expanded="false"><i class="me-3 fa fa-table"
-                                    aria-hidden="true"></i><span class="hide-menu">Table</span></a></li>
+                                    aria-hidden="true"></i><span class="hide-menu">Lista de Variables</span></a></li>
                        
                         <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
                                 href="{{ route('mapa') }}" aria-expanded="false"><i class="me-3 fa fa-globe"
-                                    aria-hidden="true"></i><span class="hide-menu">Google Map</span></a></li>
+                                    aria-hidden="true"></i><span class="hide-menu">Mapa</span></a></li>
                       
                         <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
                                 href="{{ route('cerrar') }}" aria-expanded="false"><i class="me-3 fas fa-sign-out-alt"
@@ -178,9 +178,7 @@
                     </div>
                     <div class="col-md-6 col-4 align-self-center">
                         <div class="text-end upgrade-btn">
-                            <a href="https://www.wrappixel.com/templates/monsteradmin/"
-                                class="btn btn-success d-none d-md-inline-block text-white" target="_blank">Upgrade to
-                                Pro</a>
+                           
                         </div>
                     </div>
                 </div>
@@ -200,13 +198,15 @@
                     <div class="col-sm-12">
                         <div class="card">
                             <div class="card-body">
-                                <h4 class="card-title">Basic Table</h4>
-                                <h6 class="card-subtitle">Add class <code>.table</code></h6>
+                                <h4 class="card-title">Registro de variables</h4>
+                                
                                 <div class="table-responsive">
+                                 
                                     <table class="table user-table no-wrap">
                                         <thead>
                                             <tr>
-                                                <th class="border-top-0">#</th>
+                                               
+                                                <th class="border-top-0">Comuna</th>
                                                 <th class="border-top-0">v1</th>
                                                 <th class="border-top-0">v2</th>
                                                 <th class="border-top-0">v3</th>
@@ -215,10 +215,26 @@
                                                 <th class="border-top-0">v6</th>
                                                 <th class="border-top-0">v7</th>
                                                 <th class="border-top-0">v8</th>
+                                                <th class="border-top-0">Contaminacion</th>
                                             </tr>
                                         </thead>
                                         <tbody>
-            
+                                            @foreach ($satos as $item)
+                                                <tr>
+                                                    
+                                                    <th class="border-top-0">{{$item->nombre_comuna}}</th>
+                                                    <th class="border-top-0">{{$item->variable_1}}</th>
+                                                    <th class="border-top-0">{{$item->variable_2}}</th>
+                                                    <th class="border-top-0">{{$item->variable_3}}</th>
+                                                    <th class="border-top-0">{{$item->variable_4}}</th>
+                                                    <th class="border-top-0">{{$item->variable_5}}</th>
+                                                    <th class="border-top-0">{{$item->variable_6}}</th>
+                                                    <th class="border-top-0">{{$item->variable_7}}</th>
+                                                    <th class="border-top-0">{{$item->variable_8}}</th>
+                                                    <th class="border-top-0">{{$item->contaminacion}}</th>
+                                                </tr>
+                                            @endforeach
+                                         
                                           
                                         </tbody>
                                     </table>

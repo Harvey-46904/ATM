@@ -56,12 +56,15 @@ class UsuariosController extends Controller
         ->select()
         ->where('usuarios.Email','=',$email)
         ->get()->first();
-       
+        $satos=DB::table('comunas')
+                ->select()
+                ->get(); 
+
         if($usuarios){
             if($usuarios->Password==$Password){
                 session()->put('id', $usuarios->id);
                 session()->put('usernamecomplet', $usuarios->Nombre." ".$usuarios->Apellido);
-                return view('dash/dashboard');
+                return view('dash/dashboard',compact("satos"));
             }else{
                 return back()->with('msgerror', 'La Contraseña Es Incorrecta');
             }

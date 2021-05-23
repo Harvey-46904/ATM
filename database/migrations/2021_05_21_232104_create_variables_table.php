@@ -15,6 +15,7 @@ class CreateVariablesTable extends Migration
     {
         Schema::create('variables', function (Blueprint $table) {
             $table->id();
+            $table->integer("id_comuna");
             $table->decimal('variable_1', 10, 4);
             $table->decimal('variable_2', 10, 4);
             $table->decimal('variable_3', 10, 4);
@@ -23,6 +24,9 @@ class CreateVariablesTable extends Migration
             $table->decimal('variable_6', 10, 4);
             $table->decimal('variable_7', 10, 4);
             $table->decimal('variable_8', 10, 4);
+
+
+            $table->decimal('contaminacion',10,4);
             $table->timestamps();
         });
     }

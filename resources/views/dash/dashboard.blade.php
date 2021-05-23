@@ -129,19 +129,19 @@
                         <!-- User Profile-->
                         <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
                                 href="{{ route('principal') }}" aria-expanded="false"><i class="me-3 far fa-clock fa-fw"
-                                    aria-hidden="true"></i><span class="hide-menu">Dashboard</span></a></li>
+                                    aria-hidden="true"></i><span class="hide-menu">Variables</span></a></li>
                         <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
                                 href="{{ route('perfil') }}" aria-expanded="false">
                                 <i class="me-3 fa fa-user" aria-hidden="true"></i><span
-                                    class="hide-menu">Profile</span></a>
+                                    class="hide-menu">Perfil</span></a>
                         </li>
                         <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
                                 href="{{ route('tabla') }}" aria-expanded="false"><i class="me-3 fa fa-table"
-                                    aria-hidden="true"></i><span class="hide-menu">Table</span></a></li>
+                                    aria-hidden="true"></i><span class="hide-menu">Lista de Variables</span></a></li>
                        
                         <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
                                 href="{{ route('mapa') }}" aria-expanded="false"><i class="me-3 fa fa-globe"
-                                    aria-hidden="true"></i><span class="hide-menu">Google Map</span></a></li>
+                                    aria-hidden="true"></i><span class="hide-menu">Mapa</span></a></li>
                       <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
                                 href="{{ route('cerrar') }}" aria-expanded="false"><i class="me-3 fas fa-sign-out-alt"
                                     aria-hidden="true"></i><span class="hide-menu">Cerrar Sesion</span></a></li>
@@ -197,10 +197,21 @@
                             @if (Session::get('msg'))
                             <div class="alert alert-success"><strong>{!! \Session::get('msg') !!}</strong></div>
                             @endif
+                          
                             <form class="form-horizontal form-material mx-2" method="POST" action="{{ route('variablecrear') }}">
                                
                                 @csrf
-                               
+                                <div class="form-group">
+                                    <label class="col-md-12 mb-0">Comuna</label>
+                                    <div class="col-md-12">
+                                        <select name="select"   class="form-select form-select-lg mb-3">
+                                            @foreach ($satos as $item)
+                                                <option value="{{$item->id}}" >{{$item->nombre_comuna}}</option>
+                                            @endforeach
+                                          </select>
+                                    </div>
+                                </div>
+                               <br>
                                 <div class="form-group">
                                     <label class="col-md-12 mb-0">Variable 1</label>
                                     <div class="col-md-12">
