@@ -265,7 +265,12 @@
     <script> 
    
      map.on('load', ()=>{
-         comuna( {{$datos[2]}});
+         comuna2(4);
+        comuna3(8);
+         comuna4(4);
+         comuna5(5);
+         comuna6(8);
+         
      } ); 
      </script>
 </body>
