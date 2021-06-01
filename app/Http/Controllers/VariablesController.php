@@ -39,8 +39,10 @@ class VariablesController extends Controller
         $variable6=$data["variable6"];
         $variable7=$data["variable7"];
         $variable8=$data["variable8"];
-        $contaminacion=$variable1+$variable2+$variable3+$variable4+$variable5+$variable6+$variable7+$variable8;
-
+       
+        $contaminacion= -25.716+(0.359*($variable2))+(4.334*($variable3))+(1.115*($variable4))+(0.218*($variable5))-(1.183*($variable6))-(0.507*($variable7))+(0.608*($variable8));
+        $contaminacion=exp($contaminacion);
+        
         $crear_variable=new variables;
             $crear_variable->id_comuna=$select;
             $crear_variable->variable_1=$variable1;
@@ -120,9 +122,63 @@ class VariablesController extends Controller
 
     public function comuna(){
         $comuna1=self::contaminacion_comuna(1);
+        $comuna2=self::contaminacion_comuna(2);
         $comuna3=self::contaminacion_comuna(3);
-        $datos=array($comuna1, 0, $comuna3, "world");
+        $comuna4=self::contaminacion_comuna(4);
+        $comuna5=self::contaminacion_comuna(5);
+        $comuna6=self::contaminacion_comuna(6);
+        $comuna7=self::contaminacion_comuna(7);
+        $comuna8=self::contaminacion_comuna(8);
+        $comuna9=self::contaminacion_comuna(9);
+        $comuna10=self::contaminacion_comuna(10);
+        $comuna11=self::contaminacion_comuna(11);
+        $comuna12=self::contaminacion_comuna(12);
+        $datos=array(
+            "Hache",
+            $comuna1,
+            $comuna2,
+            $comuna3,
+            $comuna4,
+            $comuna5,
+            $comuna6,
+            $comuna7,
+            $comuna8,
+            $comuna9,
+            $comuna10,
+            $comuna11,
+            $comuna12
+        );
         return view('dash/map-google',compact("datos"));
+    }
+    public function comunatodo(){
+        $comuna1=self::contaminacion_comuna(1);
+        $comuna2=self::contaminacion_comuna(2);
+        $comuna3=self::contaminacion_comuna(3);
+        $comuna4=self::contaminacion_comuna(4);
+        $comuna5=self::contaminacion_comuna(5);
+        $comuna6=self::contaminacion_comuna(6);
+        $comuna7=self::contaminacion_comuna(7);
+        $comuna8=self::contaminacion_comuna(8);
+        $comuna9=self::contaminacion_comuna(9);
+        $comuna10=self::contaminacion_comuna(10);
+        $comuna11=self::contaminacion_comuna(11);
+        $comuna12=self::contaminacion_comuna(12);
+        $datos=array(
+            "Hache",
+            $comuna1,
+            $comuna2,
+            $comuna3,
+            $comuna4,
+            $comuna5,
+            $comuna6,
+            $comuna7,
+            $comuna8,
+            $comuna9,
+            $comuna10,
+            $comuna11,
+            $comuna12
+        );
+        return view('dash/mapa',compact("datos"));
     }
     public function contaminacion_comuna($comuna){
         $id= DB::table('variables')

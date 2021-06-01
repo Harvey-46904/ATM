@@ -213,7 +213,7 @@
                                 </div>
                                <br>
                                 <div class="form-group">
-                                    <label class="col-md-12 mb-0">Variable 1</label>
+                                    <label class="col-md-12 mb-0">PM</label>
                                     <div class="col-md-12">
                                         <input type="text" placeholder=""  
                                             class="form-control ps-0 form-control-line "
@@ -222,7 +222,7 @@
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label class="col-md-12 mb-0">Variable 2</label>
+                                    <label class="col-md-12 mb-0">Humedad</label>
                                     <div class="col-md-12">
                                         <input type="text" placeholder=""  
                                             class="form-control ps-0 form-control-line "
@@ -231,7 +231,7 @@
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label class="col-md-12 mb-0">Variable 3</label>
+                                    <label class="col-md-12 mb-0">Presion atmosferica</label>
                                     <div class="col-md-12">
                                         <input type="text" placeholder=""  
                                             class="form-control ps-0 form-control-line "
@@ -240,7 +240,7 @@
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label class="col-md-12 mb-0">Variable 4</label>
+                                    <label class="col-md-12 mb-0">Radacion solar</label>
                                     <div class="col-md-12">
                                         <input type="text" placeholder=""  
                                             class="form-control ps-0 form-control-line "
@@ -249,7 +249,7 @@
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label class="col-md-12 mb-0">Variable 5</label>
+                                    <label class="col-md-12 mb-0">Radiacion solar acumulada</label>
                                     <div class="col-md-12">
                                         <input type="text" placeholder=""  
                                             class="form-control ps-0 form-control-line "
@@ -258,7 +258,7 @@
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label class="col-md-12 mb-0">Variable 6</label>
+                                    <label class="col-md-12 mb-0">Max radiacion sol</label>
                                     <div class="col-md-12">
                                         <input type="text" placeholder=""  
                                             class="form-control ps-0 form-control-line "
@@ -267,7 +267,7 @@
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label class="col-md-12 mb-0">Variable 7</label>
+                                    <label class="col-md-12 mb-0">Rayos uv</label>
                                     <div class="col-md-12">
                                         <input type="text" placeholder=""  
                                             class="form-control ps-0 form-control-line "
@@ -276,7 +276,7 @@
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label class="col-md-12 mb-0">Variable 8</label>
+                                    <label class="col-md-12 mb-0">Max rayos uv</label>
                                     <div class="col-md-12">
                                         <input type="text" placeholder=""  
                                             class="form-control ps-0 form-control-line "

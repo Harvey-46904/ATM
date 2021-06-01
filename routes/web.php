@@ -23,10 +23,8 @@ Route::get('registro', function () {
 
 
 
-Route::get('/', function () {
-    return view('principal');
-})->name('map');
 
+Route::get('/', "VariablesController@comunatodo")->name('m');
 
 Route::get('mapa', "VariablesController@comuna")->name('mapa');
 

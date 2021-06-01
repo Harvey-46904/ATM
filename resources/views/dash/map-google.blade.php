@@ -173,10 +173,12 @@
                 <div class="row align-items-center">
                     <div class="col-md-6 col-8 align-self-center">
                         <h3 class="page-title mb-0 p-0">Google map</h3>
+                        {{$datos[0]}}
                         <div class="d-flex align-items-center">
                             <nav aria-label="breadcrumb">
                                 <ol class="breadcrumb">
                                     <li class="breadcrumb-item"><a href="#">Home</a></li>
+                                    
                                     <li class="breadcrumb-item active" aria-current="page">Google map</li>
                                 </ol>
                             </nav>
@@ -265,12 +267,18 @@
     <script> 
    
      map.on('load', ()=>{
-         comuna2(4);
-        comuna3(8);
-         comuna4(4);
-         comuna5(5);
-         comuna6(8);
-         
+         comuna1({{$datos[1]}});
+         comuna2({{$datos[2]}});
+         comuna3({{$datos[3]}});
+         comuna4({{$datos[4]}});
+         comuna5({{$datos[5]}});
+         comuna6({{$datos[6]}});
+         comuna7({{$datos[7]}});
+         comuna8({{$datos[8]}});
+         comuna9({{$datos[9]}});
+         comuna10({{$datos[10]}});
+         comuna11({{$datos[11]}});
+         comuna12({{$datos[12]}});
      } ); 
      </script>
 </body>

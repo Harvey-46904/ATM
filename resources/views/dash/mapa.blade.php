@@ -11,7 +11,7 @@
         <meta name="description"
             content="Monster Lite is powerful and clean admin dashboard template, inpired from Bootstrap Framework">
         <meta name="robots" content="noindex,nofollow">
-        <title>Monster Lite Template by WrapPixel</title>
+        <title>ATM</title>
         <link rel="canonical" href="https://www.wrappixel.com/templates/monster-admin-lite/" />
         <!-- Favicon icon -->
         <link rel="icon" type="image/png" sizes="16x16" href="../assets/images/favicon.png">
@@ -25,6 +25,12 @@
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
+    <link href="https://api.mapbox.com/mapbox-gl-js/v2.2.0/mapbox-gl.css" rel="stylesheet">
+<script src="https://api.mapbox.com/mapbox-gl-js/v2.2.0/mapbox-gl.js"></script>
+<style>
+    
+    #map { position: absolute; width: 95%; height: 95%; }
+    </style>
     </head>
 
 <body>
@@ -89,12 +95,7 @@
                         <!-- Search -->
                         <!-- ============================================================== -->
 
-                        <li class="nav-item hidden-sm-down">
-                            <form class="app-search ps-3">
-                                <input type="text" class="form-control" placeholder="Search for..."> <a
-                                    class="srh-btn"><i class="ti-search"></i></a>
-                            </form>
-                        </li>
+                       
                     </ul>
 
                     <!-- ============================================================== -->
@@ -127,25 +128,12 @@
                 <nav class="sidebar-nav">
                     <ul id="sidebarnav">
                         <!-- User Profile-->
+                        
                         <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
-                                href="{{ route('principal') }}" aria-expanded="false"><i class="me-3 far fa-clock fa-fw"
-                                    aria-hidden="true"></i><span class="hide-menu">Variables</span></a></li>
-                        <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
-                                href="{{ route('perfil') }}" aria-expanded="false">
-                                <i class="me-3 fa fa-user" aria-hidden="true"></i><span
-                                    class="hide-menu">Perfil</span></a>
-                        </li>
-                        <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
-                                href="{{ route('tabla') }}" aria-expanded="false"><i class="me-3 fa fa-table"
-                                    aria-hidden="true"></i><span class="hide-menu">Lista de Variables</span></a></li>
-                       
-                        <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
-                                href="{{ route('mapa') }}" aria-expanded="false"><i class="me-3 fa fa-globe"
+                                href="{{ route('m') }}" aria-expanded="false"><i class="me-3 fa fa-globe"
                                     aria-hidden="true"></i><span class="hide-menu">Mapa</span></a></li>
                       
-                        <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
-                                href="{{ route('cerrar') }}" aria-expanded="false"><i class="me-3 fas fa-sign-out-alt"
-                                    aria-hidden="true"></i><span class="hide-menu">Cerrar Sesion</span></a></li>
+                        
                     </ul>
 
                 </nav>
@@ -163,26 +151,7 @@
             <!-- ============================================================== -->
             <!-- Bread crumb and right sidebar toggle -->
             <!-- ============================================================== -->
-            <div class="page-breadcrumb">
-                <div class="row align-items-center">
-                    <div class="col-md-6 col-8 align-self-center">
-                        <h3 class="page-title mb-0 p-0">Table</h3>
-                        <div class="d-flex align-items-center">
-                            <nav aria-label="breadcrumb">
-                                <ol class="breadcrumb">
-                                    <li class="breadcrumb-item"><a href="#">Home</a></li>
-                                    <li class="breadcrumb-item active" aria-current="page">Table</li>
-                                </ol>
-                            </nav>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-4 align-self-center">
-                        <div class="text-end upgrade-btn">
-                           
-                        </div>
-                    </div>
-                </div>
-            </div>
+           
             <!-- ============================================================== -->
             <!-- End Bread crumb and right sidebar toggle -->
             <!-- ============================================================== -->
@@ -194,53 +163,16 @@
                 <!-- Start Page Content -->
                 <!-- ============================================================== -->
                 <div class="row">
-                    <!-- column -->
-                    <div class="col-sm-12">
-                        <div class="card">
-                            <div class="card-body">
-                                <h4 class="card-title">Registro de variables</h4>
+                    <div class="col-12">
+                        
+                        
                                 
-                                <div class="table-responsive">
-                                 
-                                    <table class="table user-table no-wrap">
-                                        <thead>
-                                            <tr>
-                                               
-                                                <th class="border-top-0">Comuna</th>
-                                                <th class="border-top-0">PM</th>
-                                                <th class="border-top-0">Humedad</th>
-                                                <th class="border-top-0">Presion atmosferica</th>
-                                                <th class="border-top-0">Radacion solar</th>
-                                                <th class="border-top-0">Radiacion solar acumulada</th>
-                                                <th class="border-top-0">Max radiacion sol</th>
-                                                <th class="border-top-0">Rayos uv</th>
-                                                <th class="border-top-0">Max rayos uv</th>
-                                                <th class="border-top-0">Contaminacion</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            @foreach ($satos as $item)
-                                                <tr>
-                                                    
-                                                    <th class="border-top-0">{{$item->nombre_comuna}}</th>
-                                                    <th class="border-top-0">{{$item->variable_1}}</th>
-                                                    <th class="border-top-0">{{$item->variable_2}}</th>
-                                                    <th class="border-top-0">{{$item->variable_3}}</th>
-                                                    <th class="border-top-0">{{$item->variable_4}}</th>
-                                                    <th class="border-top-0">{{$item->variable_5}}</th>
-                                                    <th class="border-top-0">{{$item->variable_6}}</th>
-                                                    <th class="border-top-0">{{$item->variable_7}}</th>
-                                                    <th class="border-top-0">{{$item->variable_8}}</th>
-                                                    <th class="border-top-0">{{$item->contaminacion}}</th>
-                                                </tr>
-                                            @endforeach
-                                         
-                                          
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div>
-                        </div>
+                               
+                                <div id="map"></div>
+
+                               
+                            
+                        
                     </div>
                 </div>
                 <!-- ============================================================== -->
@@ -261,7 +193,7 @@
             <!-- footer -->
             <!-- ============================================================== -->
             <footer class="footer text-center">
-              
+                
             </footer>
             <!-- ============================================================== -->
             <!-- End footer -->
@@ -274,6 +206,8 @@
     <!-- ============================================================== -->
     <!-- End Wrapper -->
     <!-- ============================================================== -->
+    <!-- ============================================================== -->
+    <!-- All Jquery -->
     <!-- ============================================================== -->
     <script src="../assets/plugins/jquery/dist/jquery.min.js"></script>
     <!-- Bootstrap tether Core JavaScript -->
@@ -290,6 +224,24 @@
     <script src="../assets/plugins/flot/jquery.flot.js"></script>
     <script src="../assets/plugins/flot.tooltip/js/jquery.flot.tooltip.min.js"></script>
     <script src="cssdashboard/js/pages/dashboards/dashboard1.js"></script>
+    <script src="cssdashboard/js/pages/maps.js"></script>
+    <script> 
+   
+     map.on('load', ()=>{
+         comuna1({{$datos[1]}});
+         comuna2({{$datos[2]}});
+         comuna3({{$datos[3]}});
+         comuna4({{$datos[4]}});
+         comuna5({{$datos[5]}});
+         comuna6({{$datos[6]}});
+         comuna7({{$datos[7]}});
+         comuna8({{$datos[8]}});
+         comuna9({{$datos[9]}});
+         comuna10({{$datos[10]}});
+         comuna11({{$datos[11]}});
+         comuna12({{$datos[12]}});
+     } ); 
+     </script>
 </body>
 
 </html>
