@@ -30,6 +30,17 @@
 <style>
     
     #map { position: absolute; width: 95%; height: 95%; }
+    #div2 {
+        position: absolute;
+        width: 60%;
+        
+        left:38.5%;
+    }
+    .bg-orange{background-color:#ff9933!important}
+    .bg-pink{background-color:#cc0033!important}
+    .bg-purple{background-color:#660099!important}
+    .bg-vinot{background-color:#7e0023!important}
+
     </style>
     </head>
 
@@ -169,7 +180,7 @@
                                 
                                
                                 <div id="map"></div>
-
+                                
                                
                             
                         

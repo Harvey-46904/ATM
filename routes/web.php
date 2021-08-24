@@ -22,7 +22,9 @@ Route::get('registro', function () {
 })->name('registrar');
 
 
-
+Route::get('inicios', function () {
+    return view('inicio');
+})->name('inicio');
 
 Route::get('/', "VariablesController@comunatodo")->name('m');
 

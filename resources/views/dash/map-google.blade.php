@@ -30,6 +30,17 @@
 <style>
     
     #map { position: absolute; top:20 ; bottom: 20; width: 80%; height: 80%; }
+    #div2 {
+        position: absolute;
+        width: 60%;
+        
+        left:23.4%;
+    }
+    .bg-orange{background-color:#ff9933!important}
+    .bg-pink{background-color:#cc0033!important}
+    .bg-purple{background-color:#660099!important}
+    .bg-vinot{background-color:#7e0023!important}
+
     </style>
     </head>
 
@@ -198,32 +209,12 @@
             <!-- Container fluid  -->
             <!-- ============================================================== -->
             <div class="container-fluid">
-                <!-- ============================================================== -->
-                <!-- Start Page Content -->
-                <!-- ============================================================== -->
-                <div class="row">
-                    <div class="col-12">
-                        
-                        
-                                
-                               
+               <div class="row  ">
+                    <div class="col-12"> 
                                 <div id="map"></div>
-
-                               
-                            
-                        
+                                
                     </div>
                 </div>
-                <!-- ============================================================== -->
-                <!-- End PAge Content -->
-                <!-- ============================================================== -->
-                <!-- ============================================================== -->
-                <!-- Right sidebar -->
-                <!-- ============================================================== -->
-                <!-- .right-sidebar -->
-                <!-- ============================================================== -->
-                <!-- End Right sidebar -->
-                <!-- ============================================================== -->
             </div>
             <!-- ============================================================== -->
             <!-- End Container fluid  -->
@@ -267,6 +258,7 @@
     <script> 
    
      map.on('load', ()=>{
+        
          comuna1({{$datos[1]}});
          comuna2({{$datos[2]}});
          comuna3({{$datos[3]}});
