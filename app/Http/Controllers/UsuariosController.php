@@ -44,7 +44,7 @@ class UsuariosController extends Controller
             $crear_usuario->Password=$Password;
             $crear_usuario->save();
           
-            return Redirect::to('inicio')->with('msg', 'Registro Exitoso');
+            return view('index')->with('msg', 'Registro Exitoso');
     }
     public function Login(Request $request){
         $data=$request->all();
@@ -158,6 +158,10 @@ class UsuariosController extends Controller
     public function destroy()
     {
         //session()->flush();
+        return view("index");
+    }
+
+    public function logins(){
         return view("index");
     }
 }

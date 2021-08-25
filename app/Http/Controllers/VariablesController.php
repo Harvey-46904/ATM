@@ -178,7 +178,7 @@ class VariablesController extends Controller
             $comuna11,
             $comuna12
         );
-        return view('dash/mapa',compact("datos"));
+        return view('inicio',compact("datos"));
     }
     public function contaminacion_comuna($comuna){
         $id= DB::table('variables')

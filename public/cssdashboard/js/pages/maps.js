@@ -2,13 +2,13 @@ mapboxgl.accessToken =
     "pk.eyJ1IjoiaGFydmV5NDY5MDQiLCJhIjoiY2tvend3OXl1MHkzODJ3bXdxNGJ4MXJtayJ9.61QXAUAsuOnuAst-SIiTYg";
 var map = new mapboxgl.Map({
     container: "map", // container ID
-    style: "mapbox://styles/harvey46904/ckozxa0n12inh17o0igtcqyq5", // style URL
+    style: "mapbox://styles/harvey46904/cksrqd3ny2ftk17qu6zmudsv2", // style URL
     center: [-77.27785543324444, 1.2141190103046995], // starting position
     zoom: 13, // starting zoom
 });
 
 function color(valor) {
-    var color = valor >= 0 && valor <= 5 ? "#F7DD4E" : "#4ECBF7";
+    var color = "#4ECBF7";
     //var color="#F7DD4E";
     return color;
 }
@@ -49,7 +49,7 @@ function etiquetas(){
                 source: "point", // reference the data source
                 layout: {
                     "icon-image": "3", // reference the image
-                    "icon-size": 0.40,
+                    "icon-size": 0.50,
                 },
             });
         }
@@ -89,7 +89,7 @@ function etiquetas(){
                 source: "point4", // reference the data source
                 layout: {
                     "icon-image": "4", // reference the image
-                    "icon-size": 0.40,
+                    "icon-size": 0.50,
                 },
             });
         }
@@ -129,7 +129,7 @@ function etiquetas(){
                 source: "point1", // reference the data source
                 layout: {
                     "icon-image": "1", // reference the image
-                    "icon-size": 0.40,
+                    "icon-size": 0.50,
                 },
             });
         }
@@ -169,7 +169,7 @@ function etiquetas(){
                 source: "point2", // reference the data source
                 layout: {
                     "icon-image": "2", // reference the image
-                    "icon-size": 0.40,
+                    "icon-size": 0.50,
                 },
             });
         }
@@ -209,7 +209,7 @@ function etiquetas(){
                 source: "point5", // reference the data source
                 layout: {
                     "icon-image": "5", // reference the image
-                    "icon-size": 0.40,
+                    "icon-size": 0.50,
                 },
             });
         }
@@ -249,7 +249,7 @@ function etiquetas(){
                 source: "point6", // reference the data source
                 layout: {
                     "icon-image": "6", // reference the image
-                    "icon-size": 0.40,
+                    "icon-size": 0.50,
                 },
             });
         }
@@ -289,7 +289,7 @@ function etiquetas(){
                 source: "point7", // reference the data source
                 layout: {
                     "icon-image": "7", // reference the image
-                    "icon-size": 0.40,
+                    "icon-size": 0.50,
                 },
             });
         }
@@ -329,7 +329,7 @@ function etiquetas(){
                 source: "point8", // reference the data source
                 layout: {
                     "icon-image": "8", // reference the image
-                    "icon-size": 0.40,
+                    "icon-size": 0.50,
                 },
             });
         }
@@ -369,7 +369,7 @@ function etiquetas(){
                 source: "point9", // reference the data source
                 layout: {
                     "icon-image": "9", // reference the image
-                    "icon-size": 0.40,
+                    "icon-size": 0.50,
                 },
             });
         }
@@ -409,7 +409,7 @@ function etiquetas(){
                 source: "point10", // reference the data source
                 layout: {
                     "icon-image": "10", // reference the image
-                    "icon-size": 0.40,
+                    "icon-size": 0.50,
                 },
             });
         }
@@ -449,7 +449,7 @@ function etiquetas(){
                 source: "point11", // reference the data source
                 layout: {
                     "icon-image": "11", // reference the image
-                    "icon-size": 0.40,
+                    "icon-size": 0.50,
                 },
             });
         }
@@ -489,7 +489,7 @@ function etiquetas(){
                 source: "point12", // reference the data source
                 layout: {
                     "icon-image": "12", // reference the image
-                    "icon-size": 0.40,
+                    "icon-size": 0.50,
                 },
             });
         }

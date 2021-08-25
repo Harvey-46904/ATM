@@ -13,7 +13,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('inicio', function () {
+Route::get('login', function () {
     return view('index');
 });
 
@@ -22,9 +22,7 @@ Route::get('registro', function () {
 })->name('registrar');
 
 
-Route::get('inicios', function () {
-    return view('inicio');
-})->name('inicio');
+
 
 Route::get('/', "VariablesController@comunatodo")->name('m');
 
@@ -33,6 +31,7 @@ Route::get('mapa', "VariablesController@comuna")->name('mapa');
 Route::get('principal', "VariablesController@dashboard")->name('principal');
 Route::get('tabla', "VariablesController@index")->name('tabla');
 Route::get('cerrar', "UsuariosController@destroy")->name('cerrar');
+Route::get('dash', "UsuariosController@logins")->name('ingreso');
 Route::get('perfil',"UsuariosController@show")->name('perfil');
 
 Route::put('actualizar', "UsuariosController@update")->name("actualizar");
