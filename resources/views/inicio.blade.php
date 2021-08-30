@@ -11,7 +11,7 @@
 
 	<!-- Google Fonts -->
 	<link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
-
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 	<!-- Stylesheets -->
 	<link rel="stylesheet" href="inicio/css/bootstrap.min.css"/>
 	<link rel="stylesheet" href="inicio/css/font-awesome.min.css"/>
@@ -31,7 +31,25 @@
     .bg-pink{background-color:#cc0033!important}
     .bg-purple{background-color:#660099!important}
     .bg-vinot{background-color:#7e0023!important}
-	
+	.carousel-control.left {
+    background-image: -webkit-linear-gradient(left,rgba(0,0,0,.5) 0,rgba(0,0,0,.0001) 100%);
+    background-image: -o-linear-gradient(left,rgba(0,0,0,.5) 0,rgba(0,0,0,.0001) 100%);
+    background-image: -webkit-gradient(linear,left top,right top,from(rgba(0,0,0,.5)),to(rgba(0,0,0,.0001)));
+    background-image: linear-gradient(to right,rgba(53, 167, 161, 0.5) 0,rgba(0,0,0,.0001) 100%) !important;
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#80000000', endColorstr='#00000000', GradientType=1);
+    background-repeat: repeat-x;
+}
+
+.carousel-control.right {
+    right: 0;
+    left: auto;
+    background-image: -webkit-linear-gradient(left,rgba(0,0,0,.0001) 0,rgba(0,0,0,.5) 100%);
+    background-image: -o-linear-gradient(left,rgba(0,0,0,.0001) 0,rgba(0,0,0,.5) 100%);
+    background-image: -webkit-gradient(linear,left top,right top,from(rgba(0,0,0,.0001)),to(rgba(0,0,0,.5)));
+    background-image: linear-gradient(to right,rgba(53, 167, 161, 0.5) 0,rgb(255 255 255 / 50%) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#00000000', endColorstr='#80000000', GradientType=1);
+    background-repeat: repeat-x;
+}
 	</style>
 	
 	<link href="https://api.mapbox.com/mapbox-gl-js/v2.2.0/mapbox-gl.css" rel="stylesheet">
@@ -248,19 +266,191 @@
 	<!-- Review section -->
 	<section class="about-section spad" id="estadistica">
 		<div class="container">
-			<div class="row">
-				<div class="col-lg-6 offset-lg-6 about-text">
-					<h2>Grafica de barras</h2>
+			<h2>Índice de Pasto</h2>
+			<br>
+			<div id="myCarousel" class="carousel slide" data-ride="carousel">
+			  <!-- Indicators -->
+			  <ol class="carousel-indicators">
+				<li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+				<li data-target="#myCarousel" data-slide-to="1"></li>
+				<li data-target="#myCarousel" data-slide-to="2"></li>
+			  </ol>
+		  
+			  <!-- Wrapper for slides -->
+			  <div class="carousel-inner">
+		  
+				<div class="item active">
+					<h2>Año 2011</h2>
+
+					<div class="row align-items-center">
+						<div class="col-md-2 text-center">
+							PM10
+						</div>
+						<div class="col-md-8">
+							<canvas id="myChart" width="200px" height="40px"></canvas>
+						</div>
+					</div>
+					<div class="row align-items-center">
+						<div class="col-md-2 text-center">
+							TEMPERATURA
+						</div>
+						<div class="col-md-8">
+							<canvas id="myChart1" width="200px" height="40px"></canvas>
+						</div>
+					</div>
+					<div class="row align-items-center">
+						<div class="col-md-2 text-center">
+							HUMEDAD
+						</div>
+						<div class="col-md-8">
+							<canvas id="myChart2" width="200px" height="40px"></canvas>
+						</div>
+					</div>
+					<div class="row align-items-center">
+						<div class="col-md-2 text-center">
+							DIR VIENTO
+						</div>
+						<div class="col-md-8">
+							<canvas id="myChart3" width="200px" height="40px"></canvas>
+						</div>
+					</div>
+					<div class="row align-items-center">
+						<div class="col-md-2 text-center">
+							MONTO V
+						</div>
+						<div class="col-md-8">
+							<canvas id="myChart4" width="200px" height="40px"></canvas>
+						</div>
+					</div>
+					<div class="row align-items-center">
+						<div class="col-md-2 text-center">
+							VELOCIDAD VIENTO
+						</div>
+						<div class="col-md-8">
+							<canvas id="myChart5" width="200px" height="40px"></canvas>
+						</div>
+					</div>
+					<div class="row align-items-center">
+						<div class="col-md-2 text-center">
+							TEM/HUM
+						</div>
+						<div class="col-md-8">
+							<canvas id="myChart6" width="200px" height="40px"></canvas>
+						</div>
+					</div>
+					<div class="row align-items-center">
+						<div class="col-md-2 text-center">
+							TEM/HUM/VIENTO
+						</div>
+						<div class="col-md-8">
+							<canvas id="myChart7" width="200px" height="40px"></canvas>
+						</div>
+					</div>
+					<div class="row align-items-center">
+						<div class="col-md-2 text-center">
+							PRESION ATM
+						</div>
+						<div class="col-md-8">
+							<canvas id="myChart8" width="200px" height="40px"></canvas>
+						</div>
+					</div>
+					<div class="row align-items-center">
+						<div class="col-md-2 text-center">
+							LLUVIA
+						</div>
+						<div class="col-md-8">
+							<canvas id="myChart9" width="200px" height="40px"></canvas>
+						</div>
+					</div>
+					<div class="row align-items-center">
+						<div class="col-md-2 text-center">
+							INTENSIDAD LLUVIA
+						</div>
+						<div class="col-md-8">
+							<canvas id="myChart10" width="200px" height="40px"></canvas>
+						</div>
+					</div>
+					<div class="row align-items-center">
+						<div class="col-md-2 text-center">
+							RADIACION SOLAR
+						</div>
+						<div class="col-md-8">
+							<canvas id="myChart11" width="200px" height="40px"></canvas>
+						</div>
+					</div>
+					<div class="row align-items-center">
+						<div class="col-md-2 text-center">
+							RADIACION ACUMULADA
+						</div>
+						<div class="col-md-8">
+							<canvas id="myChart12" width="200px" height="40px"></canvas>
+						</div>
+					</div>
+					<div class="row align-items-center">
+						<div class="col-md-2 text-center">
+							MAX RADIACION
+						</div>
+						<div class="col-md-8">
+							<canvas id="myChart13" width="200px" height="40px"></canvas>
+						</div>
+					</div>
+					<div class="row align-items-center">
+						<div class="col-md-2 text-center">
+							UV INTENSIDAD
+						</div>
+						<div class="col-md-8">
+							<canvas id="myChart14" width="200px" height="40px"></canvas>
+						</div>
+					</div>
+					<div class="row align-items-center">
+						<div class="col-md-2 text-center">
+							MAX UV
+						</div>
+						<div class="col-md-8">
+							<canvas id="myChart15" width="200px" height="40px"></canvas>
+						</div>
+					</div>
+					<div class="row align-items-center">
+						<div class="col-md-2 text-center">
+							DENSIDAD AIRE
+						</div>
+						<div class="col-md-8">
+							<canvas id="myChart16" width="200px" height="40px"></canvas>
+						</div>
+					</div>
 					
-					<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto saepe animi aperiam sit ratione, odit consectetur voluptas minus maxime totam?</p>
-					<h5>barras</h5>
-					<a href="http://sisaire.ideam.gov.co/ideam-sisaire-web/consultas.xhtml" class="site-btn sb-gradients sbg-line mt-5">Visitar Sisaire</a>
+				  
 				</div>
+		  
+				<div class="item">
+					
+				  <div class="carousel-caption">
+					<h3>Chicago</h3>
+					<p>Thank you, Chicago!</p>
+				  </div>
+				</div>
+			  
+				<div class="item">
+					
+				  <div class="carousel-caption">
+					<h3>New York</h3>
+					<p>We love the Big Apple!</p>
+				  </div>
+				</div>
+			
+			  </div>
+		  
+			  <!-- Left and right controls -->
+			  <a class="left carousel-control" href="#myCarousel" data-slide="prev" style="">
+				<span class="glyphicon glyphicon-chevron-left"></span>
+				<span class="sr-only">Previous</span>
+			  </a>
+			  <a class="right carousel-control" href="#myCarousel" data-slide="next">
+				<span class="glyphicon glyphicon-chevron-right"></span>
+				<span class="sr-only">Next</span>
+			  </a>
 			</div>
-			<div class="about-img">
-				<img src="inicio/img/about-img.png" alt="">
-			</div>
-		</div>
+		  </div>
 	</section>
 	<!-- Review section end -->
 
@@ -369,7 +559,11 @@
 	<script src="inicio/js/main.js"></script>
 	<script src='https://api.mapbox.com/mapbox-gl-js/v2.3.1/mapbox-gl.js'></script>
 	<script src="cssdashboard/js/pages/maps.js"></script>
-    <script> 
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.5.1/dist/chart.min.js"> </script>
+	<script src="cssdashboard/js/pages/grafica.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+	<script> 
    
      map.on('load', ()=>{
          comuna1({{$datos[1]}});
