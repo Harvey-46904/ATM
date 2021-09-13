@@ -163,6 +163,11 @@ class VariablesController extends Controller
         $comuna10=self::contaminacion_comuna(10);
         $comuna11=self::contaminacion_comuna(11);
         $comuna12=self::contaminacion_comuna(12);
+
+        $d_his=DB::table('datos_historicos')
+        ->select()
+        
+        ->get(); 
         $datos=array(
             "Hache",
             $comuna1,
@@ -178,7 +183,7 @@ class VariablesController extends Controller
             $comuna11,
             $comuna12
         );
-        return view('inicio',compact("datos"));
+        return view('inicio',compact("datos"),compact("d_his"));
     }
     public function contaminacion_comuna($comuna){
         $id= DB::table('variables')

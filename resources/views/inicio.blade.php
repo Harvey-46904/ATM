@@ -461,7 +461,9 @@
 			<div class="row">
 				<div class="col-lg-7 newsletter-text">
 					<h2>Datos Historicos</h2>
-					<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet corporis sit itaque perferendis exercitationem blanditiis.</p>
+					
+						
+					
 				</div>
 				
 			</div>
@@ -474,17 +476,123 @@
 	<!-- Blog section -->
 	<section class="about-section spad">
 		<div class="container">
-			<div class="row">
-				<div class="col-lg-6 offset-lg-6 about-text">
-					<h2>Datos Historicos</h2>
+			<h2>Datos Historicos</h2>  
+			<div id="myCarousel1" class="carousel slide" data-ride="carousel">
+			  <!-- Indicators -->
+			  <ol class="carousel-indicators">
+				<li data-target="#myCarousel1" data-slide-to="0" class="active"></li>
+				<li data-target="#myCarousel1" data-slide-to="1"></li>
+				<li data-target="#myCarousel1" data-slide-to="2"></li>
+			  </ol>
+		  
+			  <!-- Wrapper for slides -->
+			  <div class="carousel-inner">
+					<?php  $contador=0?>
+					@for ($anios = 2011; $anios <= 2016; $anios++)
 					
-					<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto saepe animi aperiam sit ratione, odit consectetur voluptas minus maxime totam?</p>
-					<h5>barras</h5>
-					<a href="http://sisaire.ideam.gov.co/ideam-sisaire-web/consultas.xhtml" class="site-btn sb-gradients sbg-line mt-5">Visitar Sisaire</a>
-				</div>
-			</div>
-			<div class="about-img">
-				<img src="inicio/img/about-img.png" alt="">
+					@if ($anios==2011)
+						<div class="item active">
+							<h3>{{ $anios}}</h3>
+							<table class="table">
+								<tr class="table-success">
+									<td>Id</td>
+									<td>FECHA</td>
+									<td>PM10</td>
+									<td>TEMP</td>
+									<td>HUMEDAD</td>
+									<td>DIR VIENTO</td>
+									<td>Monto V</td>
+									<td>Velocidad V</td>
+									<td>Tem/Hum</td>	
+									<td>Tem/Hum/Vient</td>
+									<td>PRESION ATM</td>
+									<td>LLUVIA</td>
+									<td>Intens lluv</td>
+									<td>RADIACION SOL</td>
+									<td>Radiac acum</td>
+									<td>Max Rad</td>
+									<td>UV Intens</td>
+									<td>Max UV</td>
+									<td>DENSIDAD AIRE</td>
+								</tr>
+								
+									@for ($i=0;$i<=11;$i++)
+									<tr>
+										@foreach( $d_his[$i] as $d)
+											
+											<td>
+												{{$d}}
+												
+											</td>
+											
+											
+										@endforeach
+									</tr>
+									@endfor
+								
+							</table>
+						</div>
+					
+						
+					@else
+						<div class="item">
+							<h3>{{ $anios}}</h3>
+							<table class="table">
+								<tr class="table-success">
+									<td>ID</td>
+									<td>FECHA</td>
+									<td>PM10</td>
+									<td>TEMP</td>
+									<td>HUMEDAD</td>
+									<td>DIR VIENTO</td>
+									<td>Monto V</td>
+									<td>Velocidad V</td>
+									<td>Tem/Hum</td>	
+									<td>Tem/Hum/Vient</td>
+									<td>PRESION ATM</td>
+									<td>LLUVIA</td>
+									<td>Intens lluv</td>
+									<td>RADIACION SOL</td>
+									<td>Radiac acum</td>
+									<td>Max Rad</td>
+									<td>UV Intens</td>
+									<td>Max UV</td>
+									<td>DENSIDAD AIRE</td>
+								</tr>
+
+								@for ($i=0;$i<=11;$i++)
+									<tr>
+										@foreach( $d_his[$i] as $d)
+											
+											<td>
+												{{$d}}
+												
+											</td>
+											
+											
+										@endforeach
+									</tr>
+									@endfor
+
+							</table>
+						</div>
+					
+					@endif
+					@endfor
+
+					
+		  
+			  </div>
+		  
+			  <!-- Left and right controls -->
+			  <a class="left carousel-control" href="#myCarousel1" data-slide="prev">
+				<span class="glyphicon glyphicon-chevron-left"></span>
+				<span class="sr-only">Previous</span>
+			  </a>
+			  <a class="right carousel-control" href="#myCarousel1" data-slide="next">
+				<span class="glyphicon glyphicon-chevron-right"></span>
+				<span class="sr-only">Next</span>
+			  </a>
 			</div>
 		</div>
 	</section>
