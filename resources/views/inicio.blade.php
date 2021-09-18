@@ -31,6 +31,7 @@
     .bg-pink{background-color:#cc0033!important}
     .bg-purple{background-color:#660099!important}
     .bg-vinot{background-color:#7e0023!important}
+
 	.carousel-control.left {
     background-image: -webkit-linear-gradient(left,rgba(0,0,0,.5) 0,rgba(0,0,0,.0001) 100%);
     background-image: -o-linear-gradient(left,rgba(0,0,0,.5) 0,rgba(0,0,0,.0001) 100%);
@@ -41,15 +42,87 @@
 }
 
 .carousel-control.right {
-    right: 0;
-    left: auto;
-    background-image: -webkit-linear-gradient(left,rgba(0,0,0,.0001) 0,rgba(0,0,0,.5) 100%);
-    background-image: -o-linear-gradient(left,rgba(0,0,0,.0001) 0,rgba(0,0,0,.5) 100%);
-    background-image: -webkit-gradient(linear,left top,right top,from(rgba(0,0,0,.0001)),to(rgba(0,0,0,.5)));
-    background-image: linear-gradient(to right,rgba(53, 167, 161, 0.5) 0,rgb(255 255 255 / 50%) 100%);
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#00000000', endColorstr='#80000000', GradientType=1);
+    
+	background-image: -webkit-linear-gradient(left,rgba(0,0,0,.5) 0,rgba(0,0,0,.0001) 100%);
+    background-image: -o-linear-gradient(left,rgba(0,0,0,.5) 0,rgba(0,0,0,.0001) 100%);
+    background-image: -webkit-gradient(linear,left top,right top,from(rgba(0,0,0,.5)),to(rgba(0,0,0,.0001)));
+    background-image: linear-gradient(to right,rgba(53, 167, 161, 0.5) 0,rgba(0,0,0,.0001) 100%) !important;
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#80000000', endColorstr='#00000000', GradientType=1);
     background-repeat: repeat-x;
 }
+
+.rounded-rect {
+        background: white;
+        border-radius: 10px;
+        box-shadow: 0 0 50px -25px black;
+    }
+
+    .flex-center {
+        position: absolute;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .flex-center.left {
+        left: 0px;
+    }
+
+    .flex-center.right {
+        right: 0px;
+    }
+
+    .sidebar-content {
+        position: absolute;
+        width:100%;
+        height: 70%;
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 20px;
+        color: rgb(0, 0, 0);
+    }
+
+    .sidebar-toggle {
+        position: absolute;
+        width: 1.3em;
+        height: 1.3em;
+        overflow: visible;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .sidebar-toggle.left {
+        right: -1.5em;
+    }
+
+    .sidebar-toggle.right {
+        left: -1.5em;
+    }
+
+    .sidebar-toggle:hover {
+        color: #0aa1cf;
+        cursor: pointer;
+    }
+
+    .sidebar {
+        transition: transform 1s;
+        z-index: 1;
+        width: 300px;
+        height: 100%;
+    }
+
+    /*
+  The sidebar styling has them "expanded" by default, we use CSS transforms to push them offscreen
+  The toggleSidebar() function removes this class from the element in order to expand it.
+*/
+    .left.collapsed {
+        transform: translateX(-295px);
+    }
+
+    .right.collapsed {
+        transform: translateX(295px);
+    }
+
 	</style>
 	
 	<link href="https://api.mapbox.com/mapbox-gl-js/v2.2.0/mapbox-gl.css" rel="stylesheet">
@@ -195,21 +268,101 @@
 	<section class="process-section spad" id="mapa">
 		<div class="container ">
 			<div class="section-title text-center">
-				<h2>Mapa de Pasto</h2>
+				<h2>Mapa de contaminación atmosférica en San juan de Pasto</h2>
 				<p>Se presenta mapa de San Juan de Pasto divido en doce comunas  </p>
 			</div>
-			<div class="row  bg-success text-center">
+			<div class="row   text-center">
 				<div class="col-md-12 ">
-					<div id='map' style='width: 100%; height: 600px;'></div>
+					<div id='map' style='width: 100%; height: 600px;'>
+						<div id="right" class="sidebar flex-center right collapsed">
+							<div class="sidebar-content rounded-rect flex-center">
+								<div class="container ">
+
+									<div class="row  py-5">
+										<div class="col-md-12 titulo display-4">comuna</div>
+									</div>
+									<hr>
+									<div class="row bg-success py-5 text-light">
+										<div class="col-md-6 valor">
+											33
+										</div>
+										<div class="col-md-6 escala">
+											bueno
+										</div>
+									</div>
+									<hr>
+										<div class="row px-4 py-2">
+											<div class="col-md-6">PM10</div>
+											<div class="col-md-6 pm">10</div>
+										</div>
+										<div class="row px-4 py-2">
+											<div class="col-md-6">TEMPERATURA</div>
+											<div class="col-md-6 tem">10</div>
+										</div>
+										<div class="row px-4 py-2">
+											<div class="col-md-6">PRESIÓN ATM</div>
+											<div class="col-md-6 atm">10</div>
+										</div>
+										<div class="row px-4 py-2">
+											<div class="col-md-6">HUMEDAD</div>
+											<div class="col-md-6 hum">10</div>
+										</div>
+										<div class="row px-4 py-2">
+											<div class="col-md-6">VELOCIDAD VIENTO</div>
+											<div class="col-md-6 vel">10</div>
+										</div>
+											
+											
+											
+							
+										
+									
+
+								</div>
+								
+							</div>
+						</div>
+						<div id="left" class="sidebar flex-center left collapsed">
+							<div class="sidebar-content rounded-rect flex-center">
+								<div class="container ">
+
+									<div class="row  py-5">
+										<div class="col-md-12 escala display-4">titulo</div>
+									</div>
+									<hr>
+									<div class="row py-5 text-light colin">
+										<div class="col-md-12 valor">
+											<i class="ti-flag-alt "></i>
+										</div>
+									</div>
+
+									<div class="row py-5 ">
+										<div class="col-md-12 info">
+											leterdsafasdhkjlf
+										</div>
+									</div>
+									
+										
+									
+									
+
+								</div>
+								
+								<div class="sidebar-toggle rounded-rect left" onclick="toggleSidebar('left')">
+								&rarr;
+								</div>
+							</div>
+						</div>
+					</div>
 				</div>
 				<div class="col-md-12 ">
 					<div id="div2" class="row text-light text-center ">
-						<div class="col-md-1 bg-success">Bueno</div>
-						<div class="col-md-2 bg-warning">Moderado</div>
-						<div class="col-md-3 bg-orange">No es saludable para grupos sensibles</div>
-						<div class="col-md-2 bg-pink">Insalubre</div>
-						<div class="col-md-2 bg-purple">poco Saludable</div>
-						<div class="col-md-2 bg-vinot">Peligroso</div>
+						<div class="col-md-1 bg-success" onclick="informacions(1)">Bueno</div>
+						<div class="col-md-2 bg-warning" onclick="informacions(2)">Moderado</div>
+						<div class="col-md-3 bg-orange" onclick="informacions(3)">No es saludable para grupos sensibles</div>
+						<div class="col-md-2 bg-pink" onclick="informacions(4)">Insalubre</div>
+						<div class="col-md-2 bg-purple" onclick="informacions(5)">poco Saludable</div>
+						<div class="col-md-2 bg-vinot" onclick="informacions(6)">Peligroso</div>
 					</div>
 
 				</div>
@@ -255,6 +408,21 @@
 			</div>
 		</div>
 	</section>
+
+
+	<section class="about-section spad">
+		<div class="container">
+			
+			<img src="images/1atm.jpeg" class="img-fluid pb-4" alt="Responsive image">
+			<img src="images/2atm.jpeg" class="img-fluid pb-4" alt="Responsive image">
+			<img src="images/3atm.jpeg" class="img-fluid pb-4" alt="Responsive image">
+			<img src="images/4atm.jpeg" class="img-fluid pb-4" alt="Responsive image">
+			<img src="images/5atm.jpeg" class="img-fluid pb-4" alt="Responsive image">
+			<img src="images/6atm.jpeg" class="img-fluid pb-4" alt="Responsive image">
+			<img src="images/7atm.jpeg" class="img-fluid pb-4" alt="Responsive image">
+			<img src="images/8atm.jpeg" class="img-fluid pb-4" alt="Responsive image">
+		</div>
+	</section>
 	<!-- Fact section end -->
 
 
@@ -292,7 +460,7 @@
 					</div>
 					<div class="row align-items-center">
 						<div class="col-md-2 text-center">
-							TEMPERATURA
+							TEMPERATURA Celsius (°C) 
 						</div>
 						<div class="col-md-8">
 							<canvas id="myChart1" width="200px" height="40px"></canvas>
@@ -306,14 +474,7 @@
 							<canvas id="myChart2" width="200px" height="40px"></canvas>
 						</div>
 					</div>
-					<div class="row align-items-center">
-						<div class="col-md-2 text-center">
-							DIR VIENTO
-						</div>
-						<div class="col-md-8">
-							<canvas id="myChart3" width="200px" height="40px"></canvas>
-						</div>
-					</div>
+					
 					<div class="row align-items-center">
 						<div class="col-md-2 text-center">
 							MONTO V
@@ -338,14 +499,7 @@
 							<canvas id="myChart6" width="200px" height="40px"></canvas>
 						</div>
 					</div>
-					<div class="row align-items-center">
-						<div class="col-md-2 text-center">
-							TEM/HUM/VIENTO
-						</div>
-						<div class="col-md-8">
-							<canvas id="myChart7" width="200px" height="40px"></canvas>
-						</div>
-					</div>
+				
 					<div class="row align-items-center">
 						<div class="col-md-2 text-center">
 							PRESION ATM
@@ -422,6 +576,7 @@
 				  
 				</div>
 		  
+				<!--
 				<div class="item">
 					
 				  <div class="carousel-caption">
@@ -429,14 +584,8 @@
 					<p>Thank you, Chicago!</p>
 				  </div>
 				</div>
-			  
-				<div class="item">
-					
-				  <div class="carousel-caption">
-					<h3>New York</h3>
-					<p>We love the Big Apple!</p>
-				  </div>
-				</div>
+			  -->
+				
 			
 			  </div>
 		  
@@ -461,9 +610,6 @@
 			<div class="row">
 				<div class="col-lg-7 newsletter-text">
 					<h2>Datos Historicos</h2>
-					
-						
-					
 				</div>
 				
 			</div>
@@ -493,7 +639,7 @@
 					@if ($anios==2011)
 						<div class="item active">
 							<h3>{{ $anios}}</h3>
-							<table class="table">
+							<table class="table" style='font-size: 15px;'>
 								<tr class="table-success">
 									<td>Id</td>
 									<td>FECHA</td>
@@ -572,7 +718,7 @@
 											
 										@endforeach
 									</tr>
-									@endfor
+								@endfor
 
 							</table>
 						</div>
@@ -598,7 +744,59 @@
 	</section>
 	<!-- Blog section end -->
 
+	<section class="newsletter-section gradient-bg" id="datos">
+		<div class="container text-white">
+			<div class="row">
+				<div class="col-lg-7 newsletter-text">
+					<h2>Valores de Predicción</h2>
+				</div>
+			</div>
+		</div>
+	</section>
 
+
+	<section class="about-section spad">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-12 offset-lg-12 about-text">
+					<table class="table table-striped" style='font-size: 15px;'   >
+						<thead>
+						  <tr>
+							<th scope="col">PM10</th>
+							<th scope="col">HUMEDAD</th>
+							<th scope="col">PRESION ATM</th>
+							<th scope="col">INTENSIDAD LLUVIA</th>
+							<th scope="col">RADIACIÓN SOLAR</th>
+							<th scope="col">RADIACIÓN ACUM</th>
+							<th scope="col">MAX RAD</th>
+							<th scope="col">UV INTENSIDAD</th>
+							<th scope="col">MAX UV</th>
+						  </tr>
+						</thead>
+						<tbody>
+							@foreach ($pre as $pres)
+								<tr>
+										
+									<td>{{$pres->PM10}}</td>
+									<td>{{$pres->HUMEDAD}}</td>
+									<td>{{$pres->PRESION_ATM}}</td>
+									<td>{{$pres->INTS_LLUV}}</td>
+									<td>{{$pres->RADIACION_SOL}}</td>
+									<td>{{$pres->RADIACION_ACUM}}</td>
+									<td>{{$pres->MAX_RAD}}</td>
+									<td>{{$pres->UV_INTES}}</td>
+									<td>{{$pres->MAX_UV}}</td>
+								</tr>
+							@endforeach
+								
+							
+						</tbody>
+					  </table>
+				</div>
+			</div>
+			
+		</div>
+	</section>
 	<!-- Footer section -->
 	<footer class="footer-section">
 		<div class="container">
@@ -671,6 +869,84 @@
 	<script src="cssdashboard/js/pages/grafica.js"></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+	<script>
+function toggleSidebar(id) {
+        const elem = document.getElementById(id);
+        // Add or remove the 'collapsed' CSS class from the sidebar element.
+        // Returns boolean "true" or "false" whether 'collapsed' is in the class list.
+        const collapsed = elem.classList.toggle('collapsed');
+        
+		const padding = {};
+        // 'id' is 'right' or 'left'. When run at start, this object looks like: '{left: 300}';
+      padding[id] = collapsed ? 0 : 300; // 0 if collapsed, 300 px if not. This matches the width of the sidebars in the .sidebar CSS class.
+     
+		
+		// Use `map.easeTo()` with a padding option to adjust the map's center accounting for the position of sidebars.
+        map.easeTo({
+            padding: padding,
+            duration: 1000 // In ms. This matches the CSS transition duration property.
+        });
+    }
+
+let registro="";
+	function informacions(a){
+		$(".colin").removeClass(registro);
+		switch (a) {
+			case 1:
+			
+			registro="bg-success"
+			
+			$(".colin").addClass("bg-success");
+			$(".info").text("La calidad del aire se considera satisfactoria y la contaminación del aire representa poco o ningún riesgo.IQA 0-50")
+			$(".escala").text("Bueno")
+				toggleSidebar("left")
+			break;
+			case 2:
+
+			registro="bg-warning"
+			$(".colin").addClass("bg-warning");
+			$(".info").text("La calidad del aire es aceptable; sin embargo, para algunos contaminantes puede haber un problema de salud moderado para un número muy pequeño de personas que son inusualmente sensibles a la contaminación del aire.IQA 50 - 100")
+			$(".escala").text("Moderado")
+				toggleSidebar("left")
+			
+			break;
+			case 3:
+			registro="bg-orange"
+			$(".colin").addClass("bg-orange");
+			$(".info").text("Los miembros de grupos sensibles pueden experimentar efectos en la salud. El público en general no es probable que se vea afectado. IQA 100 - 150")
+			$(".escala").text("No es saludable para grupos que son sensibles.")
+				toggleSidebar("left")
+			break;
+			case 4:
+			registro="bg-pink"
+			$(".colin").addClass("bg-pink");
+			$(".info").text("Todos pueden comenzar a experimentar efectos en la salud; los miembros de grupos sensibles pueden experimentar efectos de salud más graves IQA 150 - 200")
+			$(".escala").text("Insalubre")
+				toggleSidebar("left")
+			break;
+			case 5:
+			registro="bg-purple"
+			$(".colin").addClass("bg-purple");
+			
+			$(".info").text("Advertencias sanitarias de condiciones de emergencia. Existe la posibilidad que la población entera se vea afectada. IQA 200 - 300")
+			$(".escala").text("Muy poco saludable")
+				toggleSidebar("left")
+			break;
+			case 6:
+			registro="bg-vinot"
+			$(".colin").addClass("bg-vinot");
+			$(".info").text("Alerta de salud: todos pueden experimentar efectos de salud más graves. IQA 300 - 500")
+			$(".escala").text("Peligroso")
+				toggleSidebar("left")
+			break;
+		
+			
+		}
+		
+	}
+	</script>
+	
+	
 	<script> 
    
      map.on('load', ()=>{

@@ -2,9 +2,11 @@ mapboxgl.accessToken =
     "pk.eyJ1IjoiaGFydmV5NDY5MDQiLCJhIjoiY2tvend3OXl1MHkzODJ3bXdxNGJ4MXJtayJ9.61QXAUAsuOnuAst-SIiTYg";
 var map = new mapboxgl.Map({
     container: "map", // container ID
-    style: "mapbox://styles/harvey46904/cksrqd3ny2ftk17qu6zmudsv2", // style URL
+    //style: "mapbox://styles/harvey46904/cksrqd3ny2ftk17qu6zmudsv2", // style URL
+    style: "mapbox://styles/harvey46904/cktpy9qja235v18o3p0v4xb3b",
     center: [-77.27785543324444, 1.2141190103046995], // starting position
     zoom: 13, // starting zoom
+    pitch: 60
 });
 
 function color(valor) {
@@ -13,6 +15,150 @@ function color(valor) {
     return color;
 }
 
+map.on('click', 'points1', e => {
+    $(".titulo").text("Comuna 1")
+    $(".valor").text("25.47")
+    $(".pm").text("25.42")
+    $(".tem").text("14.66")
+    $(".atm").text("559.70")
+    $(".hum").text("89.08")
+    $(".vel").text("5.47")
+    toggleSidebar('right')
+});
+
+map.on('click', 'points2', e => {
+    $(".titulo").text("Comuna 2")
+			
+    $(".valor").text("21.33")
+    $(".pm").text("15.42")
+    $(".tem").text("16.67")
+    $(".atm").text("551.92")
+    $(".hum").text("69.05")
+    $(".vel").text("6.88")
+    toggleSidebar('right')
+});
+
+map.on('click', 'points3', e => {
+    $(".titulo").text("Comuna 3")
+ 
+
+
+$(".valor").text("15.19")
+$(".pm").text("15.83")
+$(".tem").text("17.03")
+$(".atm").text("551.04")
+$(".hum").text("68.71")
+$(".vel").text("2.18")
+    toggleSidebar('right')
+});
+
+map.on('click', 'points4', e => {
+    $(".titulo").text("Comuna 4")
+    $(".valor").text("20.16")
+    $(".pm").text("8.33")
+    $(".tem").text("17.11")
+    $(".atm").text("563.23")
+    $(".hum").text("67.88")
+    $(".vel").text("3.78")
+    toggleSidebar('right')
+});
+
+map.on('click', 'points5', e => {
+    $(".titulo").text("Comuna 5")
+    $(".valor").text("25.47")
+    $(".pm").text("31.67")
+    $(".tem").text("14.04")
+    $(".atm").text("564.19")
+    $(".hum").text("69.40")
+    $(".vel").text("6.88")
+    toggleSidebar('right')
+});
+
+map.on('click', 'points6', e => {
+    $(".titulo").text("Comuna 6")
+    $(".valor").text("23.48")
+    $(".pm").text("37.50")
+    $(".tem").text("13.40")
+    $(".atm").text("562.99")
+    $(".hum").text("90.35")
+    $(".vel").text("5.17")
+
+    toggleSidebar('right')
+});
+
+map.on('click', 'points7', e => {
+    $(".titulo").text("Comuna 7")
+    $(".valor").text("22.79")
+    $(".pm").text("14.61")
+    $(".tem").text("14.04")
+    $(".atm").text("556.87")
+    $(".hum").text("80.06")
+    $(".vel").text("2.90")
+    toggleSidebar('right')
+});
+
+map.on('click', 'points8', e => {
+    $(".titulo").text("Comuna 8")
+    $(".valor").text("21.58")
+    $(".pm").text("15.00")
+    $(".tem").text("15.45")
+    $(".atm").text("551.62")
+    $(".hum").text("80.36")
+    $(".vel").text("3.35")
+    toggleSidebar('right')
+});
+
+map.on('click', 'points9', e => {
+    $(".titulo").text("Comuna 9")
+    $(".valor").text("25.10")
+    $(".pm").text("2.90")
+    $(".tem").text("14.41")
+    $(".atm").text("556.96")
+    $(".hum").text("75.09")
+    $(".vel").text("5.09")
+    toggleSidebar('right')
+});
+
+map.on('click', 'points10', e => {
+    $(".titulo").text("Comuna 10")
+
+    $(".valor").text("24.61")
+    $(".pm").text("13.30")
+    $(".tem").text("16.98")
+    $(".atm").text("551.62")
+    $(".hum").text("67.72")
+    $(".vel").text("5.18")
+    toggleSidebar('right')
+});
+
+map.on('click', 'points11', e => {
+    $(".titulo").text("Comuna 11")
+
+    $(".valor").text("26.81")
+    $(".pm").text("32.10")
+    $(".tem").text("17.12")
+    $(".atm").text("560.55")
+    $(".hum").text("70.25")
+    $(".vel").text("3.33")
+    toggleSidebar('right')
+});
+
+map.on('click', 'points12', e => {
+    $(".titulo").text("Comuna 12")
+
+
+    $(".valor").text("24.17")
+    $(".pm").text("6.67")
+    $(".tem").text("16.59")
+    $(".atm").text("553.00")
+    $(".hum").text("63.35")
+    $(".vel").text("8.60")
+    toggleSidebar('right')
+});
+
+
+
+
 
 function etiquetas(){
     map.loadImage(
@@ -20,6 +166,8 @@ function etiquetas(){
         (error, image) => {
             if (error) throw error;
 
+            
+                
             // Add the image to the map style.
             map.addImage("3", image);
 
@@ -52,6 +200,8 @@ function etiquetas(){
                     "icon-size": 0.50,
                 },
             });
+
+           
         }
     );
 
