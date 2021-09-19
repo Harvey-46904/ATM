@@ -319,7 +319,9 @@
 									
 
 								</div>
-								
+								<div class="sidebar-toggle rounded-rect right" onclick="toggleSidebar('right')">
+									&larr;
+									</div>
 							</div>
 						</div>
 						<div id="left" class="sidebar flex-center left collapsed">
@@ -788,10 +790,11 @@
 									<td>{{$pres->MAX_UV}}</td>
 								</tr>
 							@endforeach
-								
-							
+						
+				
 						</tbody>
 					  </table>
+					  {{$pre->links()}}
 				</div>
 			</div>
 			

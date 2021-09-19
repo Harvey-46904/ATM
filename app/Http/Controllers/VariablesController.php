@@ -170,7 +170,7 @@ class VariablesController extends Controller
 
         $pre=DB::table('prediccion')
         ->select()
-        ->get(); 
+        ->paginate(10);
         $datos=array(
             "Hache",
             $comuna1,
