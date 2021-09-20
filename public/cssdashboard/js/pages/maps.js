@@ -10,12 +10,30 @@ var map = new mapboxgl.Map({
 });
 
 function color(valor) {
-    var color = "#4ECBF7";
-    //var color="#F7DD4E";
-    return color;
-}
 
+
+    if(valor<=0 && valor>=10){
+        return "#ffffff"
+    }
+    if(valor<=11 && valor>=15){
+        return "#ffffff"
+    }
+    if(valor<=16 && valor>=20){
+        return "#38c74d"
+    }
+    if(valor<=21 && valor>=25){
+        return "#ffe600"
+    }
+    if(valor<=26 && valor>=30){
+        return "#ff0000"
+    }
+    if(valor<=30 && valor>=35){
+        return "#ff8800" 
+    } 
+}
+let history="";
 map.on('click', 'points1', e => {
+    $(".color_escala").removeClass(history)
     $(".titulo").text("Comuna 1")
     $(".valor").text("25.47")
     $(".pm").text("25.42")
@@ -23,10 +41,13 @@ map.on('click', 'points1', e => {
     $(".atm").text("559.70")
     $(".hum").text("89.08")
     $(".vel").text("5.47")
+    history="bg-orange";
+    $(".color_escala").addClass("bg-orange")
     toggleSidebar('right')
 });
 
 map.on('click', 'points2', e => {
+    $(".color_escala").removeClass(history)
     $(".titulo").text("Comuna 2")
 			
     $(".valor").text("21.33")
@@ -35,24 +56,27 @@ map.on('click', 'points2', e => {
     $(".atm").text("551.92")
     $(".hum").text("69.05")
     $(".vel").text("6.88")
+    history="bg-orange";
+    $(".color_escala").addClass("bg-orange")
     toggleSidebar('right')
 });
 
 map.on('click', 'points3', e => {
+    $(".color_escala").removeClass(history)
     $(".titulo").text("Comuna 3")
- 
-
-
 $(".valor").text("15.19")
 $(".pm").text("15.83")
 $(".tem").text("17.03")
 $(".atm").text("551.04")
 $(".hum").text("68.71")
 $(".vel").text("2.18")
+    history="bg-success";
+    $(".color_escala").addClass("bg-success")
     toggleSidebar('right')
 });
 
 map.on('click', 'points4', e => {
+    $(".color_escala").removeClass(history)
     $(".titulo").text("Comuna 4")
     $(".valor").text("20.16")
     $(".pm").text("8.33")
@@ -60,10 +84,13 @@ map.on('click', 'points4', e => {
     $(".atm").text("563.23")
     $(".hum").text("67.88")
     $(".vel").text("3.78")
+    history="bg-success";
+    $(".color_escala").addClass("bg-success")
     toggleSidebar('right')
 });
 
 map.on('click', 'points5', e => {
+    $(".color_escala").removeClass(history)
     $(".titulo").text("Comuna 5")
     $(".valor").text("25.47")
     $(".pm").text("31.67")
@@ -71,10 +98,13 @@ map.on('click', 'points5', e => {
     $(".atm").text("564.19")
     $(".hum").text("69.40")
     $(".vel").text("6.88")
+    history="bg-warning";
+    $(".color_escala").addClass("bg-warning")
     toggleSidebar('right')
 });
 
 map.on('click', 'points6', e => {
+    $(".color_escala").removeClass(history)
     $(".titulo").text("Comuna 6")
     $(".valor").text("23.48")
     $(".pm").text("37.50")
@@ -82,11 +112,13 @@ map.on('click', 'points6', e => {
     $(".atm").text("562.99")
     $(".hum").text("90.35")
     $(".vel").text("5.17")
-
+    history="bg-success";
+    $(".color_escala").addClass("bg-success")
     toggleSidebar('right')
 });
 
 map.on('click', 'points7', e => {
+    $(".color_escala").removeClass(history)
     $(".titulo").text("Comuna 7")
     $(".valor").text("22.79")
     $(".pm").text("14.61")
@@ -94,10 +126,13 @@ map.on('click', 'points7', e => {
     $(".atm").text("556.87")
     $(".hum").text("80.06")
     $(".vel").text("2.90")
+    history="bg-success";
+    $(".color_escala").addClass("bg-success")
     toggleSidebar('right')
 });
 
 map.on('click', 'points8', e => {
+    $(".color_escala").removeClass(history)
     $(".titulo").text("Comuna 8")
     $(".valor").text("21.58")
     $(".pm").text("15.00")
@@ -105,10 +140,13 @@ map.on('click', 'points8', e => {
     $(".atm").text("551.62")
     $(".hum").text("80.36")
     $(".vel").text("3.35")
+    history="bg-warning";
+    $(".color_escala").addClass("bg-warning")
     toggleSidebar('right')
 });
 
 map.on('click', 'points9', e => {
+    $(".color_escala").removeClass(history)
     $(".titulo").text("Comuna 9")
     $(".valor").text("25.10")
     $(".pm").text("2.90")
@@ -116,10 +154,13 @@ map.on('click', 'points9', e => {
     $(".atm").text("556.96")
     $(".hum").text("75.09")
     $(".vel").text("5.09")
+    history="bg-success";
+    $(".color_escala").addClass("bg-success")
     toggleSidebar('right')
 });
 
 map.on('click', 'points10', e => {
+    $(".color_escala").removeClass(history)
     $(".titulo").text("Comuna 10")
 
     $(".valor").text("24.61")
@@ -128,10 +169,13 @@ map.on('click', 'points10', e => {
     $(".atm").text("551.62")
     $(".hum").text("67.72")
     $(".vel").text("5.18")
+    history="bg-success";
+    $(".color_escala").addClass("bg-success")
     toggleSidebar('right')
 });
 
 map.on('click', 'points11', e => {
+    $(".color_escala").removeClass(history)
     $(".titulo").text("Comuna 11")
 
     $(".valor").text("26.81")
@@ -140,10 +184,13 @@ map.on('click', 'points11', e => {
     $(".atm").text("560.55")
     $(".hum").text("70.25")
     $(".vel").text("3.33")
+    history="bg-success";
+    $(".color_escala").addClass("bg-success")
     toggleSidebar('right')
 });
 
 map.on('click', 'points12', e => {
+    $(".color_escala").removeClass(history)
     $(".titulo").text("Comuna 12")
 
 
@@ -153,6 +200,8 @@ map.on('click', 'points12', e => {
     $(".atm").text("553.00")
     $(".hum").text("63.35")
     $(".vel").text("8.60")
+    history="bg-success";
+    $(".color_escala").addClass("bg-success")
     toggleSidebar('right')
 });
 
@@ -651,7 +700,7 @@ var linecsm = 1;
 var opacitynum = 0.4;
 
 function comuna3(valor) {
-    var paint = color(valor);
+    var paint = "#ffe600"
     // Add a data source containing GeoJSON data.
     map.addSource("comuna_3", {
         type: "geojson",
@@ -805,7 +854,7 @@ function comuna3(valor) {
     etiquetas();
 }
 function comuna4(valor) {
-    var paint = color(valor);
+    var paint = "#38c74d"
     // Add a data source containing GeoJSON data.
     map.addSource("comuna_4", {
         type: "geojson",
@@ -908,7 +957,7 @@ function comuna4(valor) {
     });
 }
 function comuna2(valor) {
-    var paint = color(valor);
+    var paint = "#ff8800" ;
     // Add a data source containing GeoJSON data.
     map.addSource("comuna_2", {
         type: "geojson",
@@ -979,7 +1028,7 @@ function comuna2(valor) {
     
 }
 function comuna5(valor) {
-    var paint = color(valor);
+    var paint = "#ffe600"
     // Add a data source containing GeoJSON data.
     map.addSource("comuna_5", {
         type: "geojson",
@@ -1084,7 +1133,7 @@ function comuna5(valor) {
     
 }
 function comuna6(valor) {
-    var paint = color(valor);
+    var paint = "#38c74d"
     // Add a data source containing GeoJSON data.
     map.addSource("comuna_6", {
         type: "geojson",
@@ -1176,7 +1225,7 @@ function comuna6(valor) {
     
 }
 function comuna7(valor) {
-    var paint = color(valor);
+    var paint = "#38c74d"
     // Add a data source containing GeoJSON data.
     map.addSource("comuna_7", {
         type: "geojson",
@@ -1265,7 +1314,7 @@ function comuna7(valor) {
     
 }
 function comuna1(valor) {
-    var paint = color(valor);
+    var paint = "#ff8800" ;
     // Add a data source containing GeoJSON data.
     map.addSource("comuna_1", {
         type: "geojson",
@@ -1369,7 +1418,7 @@ function comuna1(valor) {
     
 }
 function comuna10(valor) {
-    var paint = color(valor);
+    var paint = "#38c74d"
     // Add a data source containing GeoJSON data.
     map.addSource("comuna_11", {
         type: "geojson",
@@ -1446,7 +1495,7 @@ function comuna10(valor) {
   
 }
 function comuna8(valor) {
-    var paint = color(valor);
+    var paint = "#ffe600"
     // Add a data source containing GeoJSON data.
     map.addSource("comuna_8", {
         type: "geojson",
@@ -1557,7 +1606,7 @@ function comuna8(valor) {
   
 }
 function comuna9(valor) {
-    var paint = color(valor);
+    var paint = "#38c74d"
     // Add a data source containing GeoJSON data.
     map.addSource("comuna_9", {
         type: "geojson",
@@ -1670,7 +1719,7 @@ function comuna9(valor) {
     
 }
 function comuna12(valor) {
-    var paint = color(valor);
+    var paint = "#38c74d"
     // Add a data source containing GeoJSON data.
     map.addSource("comuna_12", {
         type: "geojson",
@@ -1874,7 +1923,7 @@ function comuna12(valor) {
    
 }
 function comuna11(valor) {
-    var paint = color(valor);
+    var paint = "#38c74d"
     // Add a data source containing GeoJSON data.
     map.addSource("comuna_111", {
         type: "geojson",

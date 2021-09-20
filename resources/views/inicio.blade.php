@@ -282,7 +282,7 @@
 										<div class="col-md-12 titulo display-4">comuna</div>
 									</div>
 									<hr>
-									<div class="row bg-success py-5 text-light">
+									<div class="row  py-5 text-light color_escala">
 										<div class="col-md-6 valor">
 											33
 										</div>
